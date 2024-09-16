@@ -17,8 +17,6 @@
     <nav>
         <ul>
             <li><a href="pagina2.html">Página 2</a></li>
-            <li><a href="https://www.google.es">Google</a></li>
-            <li><a href="https://copilot.microsoft.com">Copilot</a></li>
             <!-- li*5>a[href="#"]{Opción $} -->
         </ul>
     </nav>
@@ -134,14 +132,119 @@ System.out.println("Hola");
 
                 <video src="video/rana.mp4" controls width="200"></video>
 
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762268580204!2d-2.916166924305552!3d43.2564039711237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses-419!2ses!4v1726156328013!5m2!1ses-419!2ses" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762268580204!2d-2.916166924305552!3d43.2564039711237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses-419!2ses!4v1726156328013!5m2!1ses-419!2ses"
+                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/568ZhdwyaiCyOGJRtNYhWf?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/artist/568ZhdwyaiCyOGJRtNYhWf?utm_source=generator" width="100%"
+                    height="352" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
 
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hMCVe0cs4DI?si=F_fyBtjeLP1xhF01" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315"
+                    src="https://www.youtube-nocookie.com/embed/hMCVe0cs4DI?si=F_fyBtjeLP1xhF01"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </section>
+
+            <section>
+                <h3>Formularios</h3>
+
+                <form action="https://www.google.es/search">
+                    <fieldset>
+                        <legend>Búsqueda con Google</legend>
+
+                        <input type="search" name="q" required minlength="5" placeholder="Término de búsqueda">
+                        <button>Buscar</button>
+                    </fieldset>
+                </form>
+
+                <form action="#">
+                    <fieldset>
+                        <legend>Login</legend>
+
+                        <div>
+                            <label for="usuario">Usuario</label>
+                            <input type="email" id="usuario">
+                        </div>
+                        <div>
+                            <label for="contra">Contraseña</label>
+                            <input type="password" id="contra">
+                        </div>
+                        
+                        <button>Login</button>
+                    </fieldset>
+                </form>
+
+                <form>
+                    <fieldset>
+                        <legend>Tipos de cuadros</legend>
+
+                        <input type="number" step=".01" min="0" placeholder="Euros">
+                        <input type="tel">
+                        <input type="url">
+                        <input type="date">
+                        <input type="time">
+                        <input type="datetime-local">
+                        <input type="month">
+                        <input type="week">
+                        
+                        <input type="checkbox">
+
+                        <input type="radio" id="bolita1" name="bolitas">
+                        <input type="radio" id="bolita2" name="bolitas">
+
+                        <select>
+                            <option value="1">Uno</option>
+                            <option value="2">Dos</option>
+                            <option value="3" selected>Tres</option>
+                        </select>
+
+                        <select multiple>
+                            <option value="1">Uno</option>
+                            <option value="2">Dos</option>
+                            <option value="3" selected>Tres</option>
+                        </select>
+
+                        <textarea></textarea>
+
+                        <input type="color">
+                        <input type="range" name="rango" min="1" max="10" step="2" value="1">
+
+                        <input type="submit">
+                        <input type="reset">
+                    </fieldset>
+
+                </form>
             </section>
         </article>
     </main>
+
+    <!-- Anuncios -->
+    <aside>
+        <ul>
+            <li><a href="https://www.google.es">Google</a></li>
+            <li><a href="https://copilot.microsoft.com">Copilot</a></li>
+        </ul>
+    </aside>
+
+    <!-- Pie -->
+    <footer>
+        <p>&copy;2024 Javier Lete García</p>
+        <p>
+            <dl>
+                <dt>Email</dt>
+                <dd><a href="mailto:javier@email.net">javier@email.net</a></dd>
+                <dt>Teléfono</dt>
+                <dd><a href="tel:123456789">123456789</a></dd>
+            </dl>
+        </p>
+    </footer>
+
+    <script src="js/input-month-polyfill.min.js"></script>
 </body>
 
 </html>
