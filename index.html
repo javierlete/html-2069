@@ -18,6 +18,11 @@
     <!-- Menú de navegación -->
     <nav>
         <ul>
+            <li><a href="#parrafos">Párrafos</a></li>
+            <li><a href="#listas">Listas</a></li>
+            <li><a href="#tablas">Tablas</a></li>
+            <li><a href="#multimedia">Multimedia</a></li>
+            <li><a href="#formularios">Formularios</a></li>
             <li><a href="pagina2.html">Página 2</a></li>
             <!-- li*5>a[href="#"]{Opción $} -->
         </ul>
@@ -28,7 +33,7 @@
         <article>
             <h2>HTML</h2>
 
-            <section>
+            <section id="parrafos">
                 <h3>Párrafos</h3>
 
                 <!-- p*5>lorem -->
@@ -59,7 +64,7 @@ public class HolaMundo {
 </pre>
             </section>
 
-            <section>
+            <section id="listas">
                 <h3>Listas</h3>
 
                 <ul>
@@ -89,7 +94,7 @@ public class HolaMundo {
                 </dl>
             </section>
 
-            <section>
+            <section id="tablas">
                 <h3>Tablas</h3>
 
                 <table>
@@ -124,7 +129,7 @@ public class HolaMundo {
                 </table>
             </section>
 
-            <section>
+            <section id="multimedia">
                 <h3>Multimedia</h3>
 
                 <!-- <img src="https://picsum.photos/400/300" alt="Imágen de ejemplo"> -->
@@ -134,25 +139,31 @@ public class HolaMundo {
 
                 <video src="video/rana.mp4" controls width="200"></video>
 
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762268580204!2d-2.916166924305552!3d43.2564039711237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses-419!2ses!4v1726156328013!5m2!1ses-419!2ses"
-                    allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="proporcion p1x1">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762268580204!2d-2.916166924305552!3d43.2564039711237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses-419!2ses!4v1726156328013!5m2!1ses-419!2ses"
+                        allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
 
-                <iframe
-                    src="https://open.spotify.com/embed/artist/568ZhdwyaiCyOGJRtNYhWf?utm_source=generator"
-                    allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"></iframe>
+                <div class="proporcion p4x3">
+                    <iframe
+                        src="https://open.spotify.com/embed/artist/568ZhdwyaiCyOGJRtNYhWf?utm_source=generator"
+                        allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                </div>
 
-                <iframe
-                    src="https://www.youtube-nocookie.com/embed/hMCVe0cs4DI?si=F_fyBtjeLP1xhF01"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="proporcion p16x9">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/hMCVe0cs4DI?si=F_fyBtjeLP1xhF01"
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
             </section>
 
-            <section>
+            <section id="formularios">
                 <h3>Formularios</h3>
 
                 <form action="https://www.google.es/search">
