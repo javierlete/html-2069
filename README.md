@@ -6,3 +6,5 @@
 - Chrome: https://www.google.com/googlebooks/chrome/index.html
 - ContraChrome: https://contrachrome.com/comic/946/
 - CSS Zen Garden: https://csszengarden.com/
+- Especificación oficial del HTML: https://html.spec.whatwg.org/multipage/#toc-semantics
+- Especificación oficial de CSS: https://www.w3.org/Style/CSS/current-work
