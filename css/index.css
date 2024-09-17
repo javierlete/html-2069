@@ -1,0 +1,160 @@
+/* RESETEOS */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    margin: 0;
+
+    line-height: 1.5rem;
+}
+
+main {
+    padding: .5rem;
+}
+
+h1 {
+    line-height: 2.5rem;
+}
+
+p {
+    margin: 2rem 0;
+}
+
+pre {
+    overflow: auto;
+}
+
+a {
+    text-decoration: none;
+    color: #5693b9;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img,
+audio,
+video {
+    width: 100%;
+}
+
+.proporcion {
+    position: relative;
+}
+
+.proporcion.p16x9 {
+    padding-bottom: calc(9/16 * 1%);
+    /* 56.25% */
+    /* (9/16) * 100 */
+}
+
+.proporcion.p4x3 {
+    padding-bottom: 75%;
+}
+
+.proporcion.p1x1 {
+    padding-bottom: 100%;
+}
+
+.proporcion iframe {
+    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+fieldset,
+input,
+select,
+textarea,
+button {
+    border: 1px solid lightgray;
+    border-radius: .5rem;
+
+    width: 100%;
+    padding: .5rem;
+
+    margin-top: .5rem;
+}
+
+button,
+input[type=submit],
+input[type=reset] {
+    background-color: blue;
+    color: white;
+}
+
+input[type=color] {
+    height: 3rem;
+}
+
+legend {
+    font-variant: small-caps;
+}
+
+/* ESTRUCTURA DE LA PÁGINA */
+
+/* Cabecera */
+
+body>header, body>footer {
+    background-color: black;
+    color: white;
+
+    text-align: center;
+
+    padding: .75rem;
+}
+
+body>header h1 {
+    margin: 0;
+}
+
+/* Menú */
+
+body>nav {
+    background-color: darkgray;
+}
+
+body>nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+body>nav li {
+    list-style: none;
+
+    text-align: center;
+
+    padding: .25rem;
+}
+
+body>nav a {
+    display: inline-block;
+
+    color: white;
+
+    width: 100%;
+}
+
+body>nav a:hover {
+    background-color: white;
+}
+
+body>nav a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+/* Pie */
+
+body>footer dd {
+    margin-left: 0;
+}
