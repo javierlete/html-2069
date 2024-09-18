@@ -71,6 +71,34 @@ video {
     height: 100%;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid lightgray;
+    
+    padding: .5rem;
+}
+
+thead, tfoot {
+    background-color: gray;
+}
+
+tbody>tr:nth-child(even) {
+    background-color: rgb(222, 222, 222);
+}
+
+tr :first-child {
+    text-align: end;
+}
+
+tr :nth-child(2), tr :last-child {
+    text-align: start;
+}
+
 fieldset,
 input,
 select,
