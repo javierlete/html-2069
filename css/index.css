@@ -21,6 +21,7 @@
     --espacio: .5rem;
     --espacio-grande: 1rem;
     --espacio-pequeno: .25rem;
+    --margen: 5rem;
 }
 
 /* RESETEOS */
@@ -252,6 +253,185 @@ body>footer dd {
 
         & a {
             color: var(--color-fondo);
+        }
+    }
+}
+
+@media (min-width: 425px) {
+    #listas {
+        &>:not(h3) {
+            display: inline-block;
+            vertical-align: top;;
+        }
+
+        &>ul {
+            width: 25%;
+        }
+
+        &>ol {
+            width: 74%;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    main {
+        padding: var(--margen);
+    }
+
+    body>nav {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+
+        & ul {
+            display: flex;
+
+            & li:last-child {
+                margin-left: auto;
+            }
+        }
+    }
+
+    #parrafos {
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: var(--espacio);
+
+        &>h3 {
+            width: 100%;
+        }
+
+        &>p {
+            width: calc(50% - var(--espacio));
+        }
+    }
+
+    #listas {
+        display: flex;
+        flex-wrap: wrap;
+
+        &>h3 {
+            width: 100%;
+        }
+
+        &>ul {
+            width: 15%;
+        }
+
+        &>ol {
+            width: 35%
+        }
+
+        &>dl {
+            width: 50%;
+        }
+    }
+
+    #formularios {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: var(--espacio);
+
+        &>h3 {
+            grid-column: span 2;
+        }
+
+        &>form:nth-of-type(2) {
+            grid-column: 1;
+        }
+
+        &>form:last-of-type {
+            grid-row-start: 2;
+            grid-row-end: span 3;
+            grid-column: 2;
+        }
+    }
+
+    aside ul {
+        display: flex;
+
+        & li {
+            list-style: none;
+
+            padding: var(--espacio);
+        }
+    }
+
+    body>footer {
+        display: flex;
+
+        justify-content: space-between;
+        align-items: baseline;
+
+        & #contacto dl {
+            display: flex;
+
+            &>* {
+                padding: var(--espacio-pequeno);
+            }
+        }
+    }
+
+    #arriba {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    #multimedia {
+        display: grid;
+        gap: var(--espacio);
+
+        grid-template-columns: 1fr 1fr;
+
+        grid-template-areas:
+            "multimedia-cabecera    multimedia-cabecera"
+            "audio                  audio"
+            "spotify                video"
+            "imagen                 youtube"
+            "mapa                   mapa";
+
+        &>h3 {
+            grid-area: multimedia-cabecera;
+        }
+
+        &>audio {
+            grid-area: audio;
+        }
+
+        &>video {
+            grid-area: video;
+        }
+
+        &>img {
+            grid-area: imagen;
+        }
+
+        &>#mapa {
+            grid-area: mapa;
+        }
+
+        &>#spotify {
+            grid-area: spotify;
+        }
+
+        &>#youtube {
+            grid-area: youtube;
+        }
+    }
+
+    #formularios {
+        grid-template-columns: 1fr 2fr;
+
+        &>form:last-of-type fieldset {
+            display: grid;
+            gap: var(--espacio);
+
+            grid-template-columns: 1fr 1fr;
         }
     }
 }
