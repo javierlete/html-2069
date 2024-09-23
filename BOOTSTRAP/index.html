@@ -6,30 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejemplo HTML</title>
 
-    <link rel="stylesheet" href="css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        :root {
+            --bs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
 
 <body>
     <!-- Cabecera -->
-    <header>
-        <h1>Ejemplos de HTML</h1>
+    <header class="text-bg-dark p-2 text-center">
+        <h1 class="display-1">Ejemplos de HTML</h1>
     </header>
+
+    <nav class="navbar navbar-expand-sm bg-dark sticky-top" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">HTML</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                    <li class="nav-item"><a class="nav-link" href="#parrafos">Párrafos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#listas">Listas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tablas">Tablas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#multimedia">Multimedia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#formularios">Formularios</a></li>
+                </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="pagina2.html">Página 2</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <!-- Menú de navegación -->
     <nav>
         <ul>
-            <li><a href="#parrafos">Párrafos</a></li>
-            <li><a href="#listas">Listas</a></li>
-            <li><a href="#tablas">Tablas</a></li>
-            <li><a href="#multimedia">Multimedia</a></li>
-            <li><a href="#formularios">Formularios</a></li>
-            <li><a href="pagina2.html">Página 2</a></li>
+
             <!-- li*5>a[href="#"]{Opción $} -->
         </ul>
     </nav>
 
     <!-- Zona principal -->
-    <main>
+    <main class="container my-5">
         <article>
             <h2>HTML</h2>
 
@@ -97,10 +123,10 @@ public class HolaMundo {
             <section id="tablas">
                 <h3>Tablas</h3>
 
-                <table>
+                <table class="table table-bordered table-striped table-hover">
                     <caption>Clientes</caption>
 
-                    <thead>
+                    <thead class="table-dark">
                         <tr>
                             <th>Id</th>
                             <th>Nombre</th>
@@ -129,7 +155,7 @@ public class HolaMundo {
                             <td>Pérez</td>
                         </tr>
                     </tbody>
-                    <tfoot>
+                    <tfoot class="table-dark">
                         <tr>
                             <th>Id</th>
                             <th>Nombre</th>
@@ -143,30 +169,27 @@ public class HolaMundo {
                 <h3>Multimedia</h3>
 
                 <!-- <img src="https://picsum.photos/400/300" alt="Imágen de ejemplo"> -->
-                <img src="imgs/pacman.png" alt="Pacman" width="200">
+                <img class="w-100" src="../imgs/pacman.png" alt="Pacman" width="200">
 
-                <audio src="audio/pacman.mp3" controls></audio>
+                <audio class="w-100" src="../audio/pacman.mp3" controls></audio>
 
-                <video src="video/rana.mp4" controls width="200"></video>
+                <video class="w-100" src="../video/rana.mp4" controls width="200"></video>
 
-                <div id="mapa" class="proporcion p1x1">
+                <div id="mapa" class="ratio ratio-1x1">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762268580204!2d-2.916166924305552!3d43.2564039711237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses-419!2ses!4v1726156328013!5m2!1ses-419!2ses"
-                        allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
-                <div id="spotify" class="proporcion p4x3">
-                    <iframe
-                        src="https://open.spotify.com/embed/artist/568ZhdwyaiCyOGJRtNYhWf?utm_source=generator"
+                <div id="spotify" class="ratio ratio-4x3">
+                    <iframe src="https://open.spotify.com/embed/artist/568ZhdwyaiCyOGJRtNYhWf?utm_source=generator"
                         allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
                 </div>
 
-                <div id="youtube" class="proporcion p16x9">
-                    <iframe
-                        src="https://www.youtube-nocookie.com/embed/hMCVe0cs4DI?si=F_fyBtjeLP1xhF01"
+                <div id="youtube" class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube-nocookie.com/embed/hMCVe0cs4DI?si=F_fyBtjeLP1xhF01"
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -180,8 +203,9 @@ public class HolaMundo {
                     <fieldset>
                         <legend>Búsqueda con Google</legend>
 
-                        <input type="search" name="q" required minlength="5" placeholder="Término de búsqueda">
-                        <button>Buscar</button>
+                        <input class="form-control mb-2" type="search" name="q" required minlength="5"
+                            placeholder="Término de búsqueda">
+                        <button class="btn btn-primary">Buscar</button>
                     </fieldset>
                 </form>
 
@@ -189,16 +213,20 @@ public class HolaMundo {
                     <fieldset>
                         <legend>Login</legend>
 
-                        <div>
-                            <label for="usuario">Usuario</label>
-                            <input type="email" id="usuario">
+                        <div class="row mb-2">
+                            <label class="col-xl-1 col-sm-2 col-form-label" for="usuario">Usuario</label>
+                            <div class="col-sm">
+                                <input class="form-control" type="email" id="usuario">
+                            </div>
                         </div>
-                        <div>
-                            <label for="contra">Contraseña</label>
-                            <input type="password" id="contra">
+                        <div class="row mb-2">
+                            <label class="col-xl-1 col-sm-2 col-form-label" for="contra">Contraseña</label>
+                            <div class="col-sm">
+                                <input class="form-control" type="password" id="contra">
+                            </div>
                         </div>
-                        
-                        <button>Login</button>
+
+                        <button class="btn btn-primary">Login</button>
                     </fieldset>
                 </form>
 
@@ -206,39 +234,39 @@ public class HolaMundo {
                     <fieldset>
                         <legend>Tipos de cuadros</legend>
 
-                        <input type="number" step=".01" min="0" placeholder="Euros">
-                        <input type="tel">
-                        <input type="url">
-                        <input type="date">
-                        <input type="time">
-                        <input type="datetime-local">
-                        <input type="month">
-                        <input type="week">
-                        
-                        <input type="checkbox">
+                        <input class="form-control" type="number" step=".01" min="0" placeholder="Euros">
+                        <input class="form-control" type="tel">
+                        <input class="form-control" type="url">
+                        <input class="form-control" type="date">
+                        <input class="form-control" type="time">
+                        <input class="form-control" type="datetime-local">
+                        <input class="form-control" type="month">
+                        <input class="form-control" type="week">
 
-                        <input type="radio" id="bolita1" name="bolitas">
-                        <input type="radio" id="bolita2" name="bolitas">
+                        <input class="form-check-input" type="checkbox">
 
-                        <select>
+                        <input class="form-check-input" type="radio" id="bolita1" name="bolitas">
+                        <input class="form-check-input" type="radio" id="bolita2" name="bolitas">
+
+                        <select class="form-select">
                             <option value="1">Uno</option>
                             <option value="2">Dos</option>
                             <option value="3" selected>Tres</option>
                         </select>
 
-                        <select multiple>
+                        <select class="form-select" multiple>
                             <option value="1">Uno</option>
                             <option value="2">Dos</option>
                             <option value="3" selected>Tres</option>
                         </select>
 
-                        <textarea></textarea>
+                        <textarea class="form-control"></textarea>
 
-                        <input type="color">
-                        <input type="range" name="rango" min="1" max="10" step="2" value="1">
+                        <input class="form-control" type="color">
+                        <input class="form-range" type="range" name="rango" min="1" max="10" step="2" value="1">
 
-                        <input type="submit">
-                        <input type="reset">
+                        <input class="btn btn-secondary" type="submit">
+                        <input class="btn btn-danger" type="reset">
                     </fieldset>
 
                 </form>
@@ -247,15 +275,15 @@ public class HolaMundo {
     </main>
 
     <!-- Anuncios -->
-    <aside>
-        <ul>
-            <li><a href="https://www.google.es">Google</a></li>
-            <li><a href="https://copilot.microsoft.com">Copilot</a></li>
+    <aside class="text-bg-secondary">
+        <ul class="nav justify-content-center">
+            <li class="nav-item"><a class="nav-link text-light" href="https://www.google.es">Google</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="https://copilot.microsoft.com">Copilot</a></li>
         </ul>
     </aside>
 
     <!-- Pie -->
-    <footer>
+    <footer class="text-bg-dark p-2 text-center">
         <p>&copy;2024 Javier Lete García</p>
         <div id="contacto">
             <dl>
@@ -265,19 +293,22 @@ public class HolaMundo {
                 <dd><a href="tel:123456789">123456789</a></dd>
             </dl>
         </div>
-        <div id="arriba">
-            <a href="#"><i class="fa-solid fa-arrow-up"></i></a>
+        <div id="arriba" class="position-fixed bottom-0 end-0 bg-dark rounded-circle border px-2 m-2 shadow">
+            <a class="text-light" href="#"><i class="fs-1 bi bi-arrow-up"></i></a>
         </div>
-        <ul id="redes-sociales">
-            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+        <ul class="d-flex list-unstyled justify-content-center" id="redes-sociales">
+            <li><a class="text-light px-1" href="#"><i class="bi bi-facebook"></i></a></li>
+            <li><a class="text-light px-1" href="#"><i class="bi bi-twitter-x"></i></a></li>
+            <li><a class="text-light px-1" href="#"><i class="bi bi-tiktok"></i></a></li>
+            <li><a class="text-light px-1" href="#"><i class="bi bi-youtube"></i></a></li>
+            <li><a class="text-light px-1" href="#"><i class="bi bi-instagram"></i></a></li>
         </ul>
     </footer>
 
     <script src="js/input-month-polyfill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
