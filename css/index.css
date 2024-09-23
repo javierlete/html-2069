@@ -435,3 +435,54 @@ body>footer dd {
         }
     }
 }
+
+@media (min-width: 1440px) {
+    article {
+        display: grid;
+        align-items: start;
+        gap: var(--espacio);
+
+        grid-template-columns: 1fr 1fr;
+
+        grid-template-areas: 
+            "html-titulo html-titulo"
+            "parrafos parrafos"
+            "listas tablas"
+            "multimedia multimedia"
+            "formularios formularios"
+        ;
+    }
+
+    article>h2 {
+        grid-area: html-titulo;
+    }
+
+    #parrafos {
+        grid-area: parrafos;
+    }
+
+    #listas {
+        grid-area: listas;
+    }
+
+    #tablas {
+        grid-area: tablas;
+    }
+
+    #multimedia {
+        grid-area: multimedia;
+
+        grid-template-columns: 1fr 1.5fr 1fr;
+
+        grid-template-areas:
+            "multimedia-cabecera    multimedia-cabecera multimedia-cabecera"
+            "audio                  audio               audio"
+            "spotify                mapa                video"
+            "imagen                 mapa                youtube"
+        ;
+    }
+
+    #formularios {
+        grid-area: formularios;
+    }
+}
