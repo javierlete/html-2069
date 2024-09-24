@@ -1,6 +1,7 @@
 # Referencias
 
 - Página publicada del curso: https://javierlete.github.io/html-2069/
+- Página de Bootstrap del curso: https://javierlete.github.io/html-2069/BOOTSTRAP/
 - Copilot: https://copilot.microsoft.com/
 - FreeCodeCamp: https://www.freecodecamp.org/learn/2022/responsive-web-design/
 - Chrome: https://www.google.com/googlebooks/chrome/index.html
