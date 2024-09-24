@@ -52,41 +52,41 @@
 
     <!-- Zona principal -->
     <main class="container my-5">
-        <article>
+        <article class="row">
             <h2>HTML</h2>
 
-            <section id="parrafos">
+            <section class="col-sm-7 col-md-8 col-lg-9 col-xxl" id="parrafos">
                 <h3>Párrafos</h3>
 
-                <!-- p*5>lorem -->
-                <p><strong>Lorem ipsum</strong><br>
-                    <em>dolor</em> sit amet, consectetur adipisicing elit. Aut voluptatibus vero quis consequatur
-                    error et impedit labore? Unde aspernatur facere et voluptates! Fugiat excepturi voluptatibus velit
-                    dolorum delectus optio non.
-                </p>
-                <p>Dolorum excepturi dolor aliquid eum? Suscipit, odio cum? Quas ad aspernatur id est dolores enim
-                    deserunt nostrum magnam saepe, at non placeat eius similique quos voluptatum magni ipsum sit atque.
-                </p>
-                <p>Modi libero, consequatur asperiores perferendis rerum commodi possimus, officia aut autem fugiat,
-                    tempora reiciendis! Quos sunt quis perspiciatis minima, ipsa odit, explicabo illum qui suscipit
-                    accusantium perferendis, delectus itaque ratione.</p>
-                <p>Fugit sapiente consequuntur architecto laborum laboriosam minus cupiditate expedita similique amet
-                    facere aliquam autem, earum vitae aliquid inventore adipisci non molestiae! Repudiandae culpa
-                    reprehenderit iste voluptatibus consequuntur tempora ab quam?</p>
-                <p>Accusantium quo facere non eveniet autem dicta facilis, atque molestiae itaque inventore consequatur
-                    iusto doloribus! Eos iste illo officiis debitis dolores consectetur, quisquam ipsum quaerat deserunt
-                    sequi laboriosam nihil hic.</p>
-
-                <pre>
+                <div class="row row-cols-lg-2">
+                    <p class="col-lg"><strong>Lorem ipsum</strong><br>
+                        <em>dolor</em> sit amet, consectetur adipisicing elit. Aut voluptatibus vero quis consequatur
+                        error et impedit labore? Unde aspernatur facere et voluptates! Fugiat excepturi voluptatibus velit
+                        dolorum delectus optio non.
+                    </p>
+                    <p class="col-lg">Dolorum excepturi dolor aliquid eum? Suscipit, odio cum? Quas ad aspernatur id est dolores enim
+                        deserunt nostrum magnam saepe, at non placeat eius similique quos voluptatum magni ipsum sit atque.
+                    </p>
+                    <p class="col-lg">Modi libero, consequatur asperiores perferendis rerum commodi possimus, officia aut autem fugiat,
+                        tempora reiciendis! Quos sunt quis perspiciatis minima, ipsa odit, explicabo illum qui suscipit
+                        accusantium perferendis, delectus itaque ratione.</p>
+                    <p class="col-lg">Fugit sapiente consequuntur architecto laborum laboriosam minus cupiditate expedita similique amet
+                        facere aliquam autem, earum vitae aliquid inventore adipisci non molestiae! Repudiandae culpa
+                        reprehenderit iste voluptatibus consequuntur tempora ab quam?</p>
+                    <p class="col-lg">Accusantium quo facere non eveniet autem dicta facilis, atque molestiae itaque inventore consequatur
+                        iusto doloribus! Eos iste illo officiis debitis dolores consectetur, quisquam ipsum quaerat deserunt
+                        sequi laboriosam nihil hic.</p>
+                    <pre class="col-lg">
 public class HolaMundo {
     public static void main(String[] args) {
         System.out.println("Hola");
     }
 }
-</pre>
+                    </pre>
+                </div>
             </section>
 
-            <section id="listas">
+            <section class="col-sm-5 col-md-4 col-lg-3 col-xxl-2" id="listas">
                 <h3>Listas</h3>
 
                 <ul>
@@ -116,7 +116,7 @@ public class HolaMundo {
                 </dl>
             </section>
 
-            <section id="tablas">
+            <section class="col-xxl-3" id="tablas">
                 <h3>Tablas</h3>
 
                 <table class="table table-bordered table-striped table-hover">
@@ -161,111 +161,101 @@ public class HolaMundo {
                 </table>
             </section>
 
-            <section id="multimedia">
+            <section class="col-md-6 col-lg-12" id="multimedia">
                 <h3>Multimedia</h3>
 
-                <!-- <img src="https://picsum.photos/400/300" alt="Imágen de ejemplo"> -->
-                <img class="w-100" src="../imgs/pacman.png" alt="Pacman" width="200">
-
-                <audio class="w-100" src="../audio/pacman.mp3" controls></audio>
-
-                <video class="w-100" src="../video/rana.mp4" controls width="200"></video>
-
-                <div id="mapa" class="ratio ratio-1x1">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762268580204!2d-2.916166924305552!3d43.2564039711237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses-419!2ses!4v1726156328013!5m2!1ses-419!2ses"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-
-                <div id="spotify" class="ratio ratio-4x3">
-                    <iframe src="https://open.spotify.com/embed/artist/568ZhdwyaiCyOGJRtNYhWf?utm_source=generator"
-                        allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-
-                <div id="youtube" class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube-nocookie.com/embed/hMCVe0cs4DI?si=F_fyBtjeLP1xhF01"
-                        title="YouTube video player"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="row">
+                    <img class="col-lg-6" src="../imgs/pacman.png" alt="Pacman" width="200">
+                    <audio class="col-lg-12 order-lg-first" src="../audio/pacman.mp3" controls></audio>
+                    <video class="col-lg-6" src="../video/rana.mp4" controls width="200"></video>
+                    <div id="mapa" class="col-lg ratio ratio-1x1">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762268580204!2d-2.916166924305552!3d43.2564039711237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses-419!2ses!4v1726156328013!5m2!1ses-419!2ses"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div id="spotify" class="col-lg ratio ratio-4x3">
+                        <iframe src="https://open.spotify.com/embed/artist/568ZhdwyaiCyOGJRtNYhWf?utm_source=generator"
+                            allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                    </div>
+                    <div id="youtube" class="col-lg ratio ratio-16x9">
+                        <iframe src="https://www.youtube-nocookie.com/embed/hMCVe0cs4DI?si=F_fyBtjeLP1xhF01"
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </div>
             </section>
 
-            <section id="formularios">
+            <section class="col-md-6 col-lg-12" id="formularios">
                 <h3>Formularios</h3>
 
-                <form action="https://www.google.es/search">
-                    <fieldset>
-                        <legend>Búsqueda con Google</legend>
-
-                        <input class="form-control mb-2" type="search" name="q" required minlength="5"
-                            placeholder="Término de búsqueda">
-                        <button class="btn btn-primary">Buscar</button>
-                    </fieldset>
-                </form>
-
-                <form action="#">
-                    <fieldset>
-                        <legend>Login</legend>
-
-                        <div class="row mb-2">
-                            <label class="col-xl-1 col-sm-2 col-form-label" for="usuario">Usuario</label>
-                            <div class="col-sm">
-                                <input class="form-control" type="email" id="usuario">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <form action="https://www.google.es/search">
+                            <fieldset>
+                                <legend>Búsqueda con Google</legend>
+                                <input class="form-control mb-2" type="search" name="q" required minlength="5"
+                                    placeholder="Término de búsqueda">
+                                <button class="btn btn-primary">Buscar</button>
+                            </fieldset>
+                        </form>
+                        <form action="#">
+                            <fieldset>
+                                <legend>Login</legend>
+                                <div class="row mb-2">
+                                    <label class="col-xl-1 col-sm-2 col-form-label" for="usuario">Usuario</label>
+                                    <div class="col-sm">
+                                        <input class="form-control" type="email" id="usuario">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label class="col-xl-1 col-sm-2 col-form-label" for="contra">Contraseña</label>
+                                    <div class="col-sm">
+                                        <input class="form-control" type="password" id="contra">
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary">Login</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <form class="col-lg-8">
+                        <fieldset class="row">
+                            <legend>Tipos de cuadros</legend>
+                            <div class="col-lg-6">
+                                <input class="form-control" type="number" step=".01" min="0" placeholder="Euros">
+                                <input class="form-control" type="tel">
+                                <input class="form-control" type="url">
+                                <input class="form-control" type="date">
+                                <input class="form-control" type="time">
+                                <input class="form-control" type="datetime-local">
+                                <input class="form-control" type="month">
+                                <input class="form-control" type="week">
                             </div>
-                        </div>
-                        <div class="row mb-2">
-                            <label class="col-xl-1 col-sm-2 col-form-label" for="contra">Contraseña</label>
-                            <div class="col-sm">
-                                <input class="form-control" type="password" id="contra">
+                            <div class="col-lg-6">
+                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" type="radio" id="bolita1" name="bolitas">
+                                <input class="form-check-input" type="radio" id="bolita2" name="bolitas">
+                                <select class="form-select">
+                                    <option value="1">Uno</option>
+                                    <option value="2">Dos</option>
+                                    <option value="3" selected>Tres</option>
+                                </select>
+                                <select class="form-select" multiple>
+                                    <option value="1">Uno</option>
+                                    <option value="2">Dos</option>
+                                    <option value="3" selected>Tres</option>
+                                </select>
+                                <textarea class="form-control"></textarea>
+                                <input class="form-control" type="color">
+                                <input class="form-range" type="range" name="rango" min="1" max="10" step="2" value="1">
+                                <input class="btn btn-secondary" type="submit">
+                                <input class="btn btn-danger" type="reset">
                             </div>
-                        </div>
-
-                        <button class="btn btn-primary">Login</button>
-                    </fieldset>
-                </form>
-
-                <form>
-                    <fieldset>
-                        <legend>Tipos de cuadros</legend>
-
-                        <input class="form-control" type="number" step=".01" min="0" placeholder="Euros">
-                        <input class="form-control" type="tel">
-                        <input class="form-control" type="url">
-                        <input class="form-control" type="date">
-                        <input class="form-control" type="time">
-                        <input class="form-control" type="datetime-local">
-                        <input class="form-control" type="month">
-                        <input class="form-control" type="week">
-
-                        <input class="form-check-input" type="checkbox">
-
-                        <input class="form-check-input" type="radio" id="bolita1" name="bolitas">
-                        <input class="form-check-input" type="radio" id="bolita2" name="bolitas">
-
-                        <select class="form-select">
-                            <option value="1">Uno</option>
-                            <option value="2">Dos</option>
-                            <option value="3" selected>Tres</option>
-                        </select>
-
-                        <select class="form-select" multiple>
-                            <option value="1">Uno</option>
-                            <option value="2">Dos</option>
-                            <option value="3" selected>Tres</option>
-                        </select>
-
-                        <textarea class="form-control"></textarea>
-
-                        <input class="form-control" type="color">
-                        <input class="form-range" type="range" name="rango" min="1" max="10" step="2" value="1">
-
-                        <input class="btn btn-secondary" type="submit">
-                        <input class="btn btn-danger" type="reset">
-                    </fieldset>
-
-                </form>
+                        </fieldset>
+                    </form>
+                </div>
             </section>
         </article>
     </main>
