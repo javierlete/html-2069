@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark sticky-top" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Tienda <i class="bi bi-cart4"></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Principal</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mb-2 mb-sm-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Administración</a>
+                    </li>
+                    <li class="navbar-text">
+                        Javier Lete
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cerrar sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4 mb-5 pb-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://picsum.photos/400/300?1" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Producto 1</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex unde vero aspernatur obcaecati cumque amet neque placeat a, atque velit? Hic quo necessitatibus blanditiis omnis adipisci voluptatum ipsa dolorum temporibus.</p>
+                        <p class="card-text fw-bold text-end">1.234,56 €</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Actualizado ayer</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://picsum.photos/400/300?2" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo molestiae
+                            illo accusantium saepe a similique quos, impedit ea voluptate explicabo ex animi facere odit
+                            exercitationem officia iusto sed natus sequi.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="text-bg-dark p-2 text-center fixed-bottom">
+        <p>&copy;2024 Javier Lete</p>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

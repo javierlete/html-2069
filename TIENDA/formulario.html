@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark sticky-top" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Tienda</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Principal</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mb-2 mb-sm-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Administración</a>
+                    </li>
+                    <li class="navbar-text">
+                        Javier Lete
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cerrar sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4 mb-5 pb-5">
+        <form action="admin.html" class="needs-validation" novalidate>
+            <div class="row mb-3">
+                <label for="id" class="col-sm-2 col-form-label">Id</label>
+                <div class="col-sm">
+                    <input readonly class="form-control" id="id" value="1">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm">
+                    <input type="text" required minlength="3" class="form-control" id="nombre">
+                    <div class="invalid-feedback">
+                        El nombre es obligatorio y debe tener al menos 3 letras
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="precio" class="col-sm-2 col-form-label">Precio</label>
+                <div class="col-sm">
+                    <input type="number" step=".01" required min="0" class="form-control" id="precio">
+                    <div class="invalid-feedback">
+                        El precio es obligatorio y debe ser positivo
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="offset-sm-2 col-sm">
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-floppy2-fill"></i></button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <footer class="text-bg-dark p-2 text-center fixed-bottom">
+        <p>&copy;2024 Javier Lete</p>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/validacion.js"></script>
+</body>
+
+</html>
