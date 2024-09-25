@@ -11,6 +11,11 @@
 
 - Especificación oficial del HTML: https://html.spec.whatwg.org/multipage/#toc-semantics
 
+### Ejercicios HTML
+
+- https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-html-by-building-a-cat-photo-app/step-1
+- https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-html-forms-by-building-a-registration-form/step-1
+
 ## CSS
 
 - CSS Zen Garden: https://csszengarden.com/
@@ -21,6 +26,19 @@
 - Hoja de reseteo de Eric Meyer: https://meyerweb.com/eric/tools/css/reset/
 - Fonts de Google: https://fonts.google.com/
 - Iconos de FontAwesome: https://fontawesome.com/
+
+### Ejercicios CSS
+
+- **https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-basic-css-by-building-a-cafe-menu/step-1**
+- https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-colors-by-building-a-set-of-colored-markers/step-1
+- https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-the-css-box-model-by-building-a-rothko-painting/step-1
+- **https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-flexbox-by-building-a-photo-gallery/step-1**
+- **https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-typography-by-building-a-nutrition-label/step-1**
+- **https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-more-about-css-pseudo-selectors-by-building-a-balance-sheet/step-1**
+- *https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-intermediate-css-by-building-a-cat-painting/step-1*
+- *https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-responsive-web-design-by-building-a-piano/step-1*
+- *https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-variables-by-building-a-city-skyline/step-1*
+- **https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-grid-by-building-a-magazine/step-1**
 
 ### Juegos
 
@@ -33,3 +51,7 @@
 - Bootstrap: https://getbootstrap.com/
 - Icons: https://icons.getbootstrap.com/
 - Plantillas: https://startbootstrap.com/?showAngular=false&showVue=false&showPro=false
+
+### Ejercicios Boostrap
+
+- https://www.freecodecamp.org/learn/front-end-development-libraries/bootstrap/use-responsive-design-with-bootstrap-fluid-containers
