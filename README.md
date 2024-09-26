@@ -1,24 +1,39 @@
 # Referencias
 
+## Páginas del curso
+
 - Página publicada del curso: https://javierlete.github.io/html-2069/
 - Página de Bootstrap del curso: https://javierlete.github.io/html-2069/BOOTSTRAP/
+
+## Inteligencias Artificiales
+
 - Copilot: https://copilot.microsoft.com/
 - Codeium: https://codeium.com/
 - Codeium Chat: https://codeium.com/live/general
+
+## Certificación
+
 - FreeCodeCamp: https://www.freecodecamp.org/learn/2022/responsive-web-design/
+
+## Documentación en general
+
+- Mozilla Development Network (HTML, CSS y JavaScript): https://developer.mozilla.org/es/docs/Learn/Getting_started_with_the_web
+
+## Extras
+
 - Chrome: https://www.google.com/googlebooks/chrome/index.html
 - ContraChrome: https://contrachrome.com/comic/946/
 
-## HTML
+# HTML
 
 - Especificación oficial del HTML: https://html.spec.whatwg.org/multipage/#toc-semantics
 
-### Ejercicios HTML
+## Ejercicios HTML
 
 - https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-html-by-building-a-cat-photo-app/step-1
 - https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-html-forms-by-building-a-registration-form/step-1
 
-## CSS
+# CSS
 
 - CSS Zen Garden: https://csszengarden.com/
 - Especificación oficial de CSS: https://www.w3.org/Style/CSS/current-work
@@ -29,7 +44,7 @@
 - Fonts de Google: https://fonts.google.com/
 - Iconos de FontAwesome: https://fontawesome.com/
 
-### Ejercicios CSS
+## Ejercicios CSS
 
 - **https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-basic-css-by-building-a-cafe-menu/step-1**
 - https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-colors-by-building-a-set-of-colored-markers/step-1
@@ -42,26 +57,35 @@
 - *https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-variables-by-building-a-city-skyline/step-1*
 - **https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-css-grid-by-building-a-magazine/step-1**
 
-### Juegos
+## Juegos
 
 - CSS Dinner: https://flukeout.github.io/
 - Flexbox Froggy: https://flexboxfroggy.com/#es
 - Grid Garden: https://cssgridgarden.com/#es
 
-## Bootstrap
+# Bootstrap
 
 - Bootstrap: https://getbootstrap.com/
 - Icons: https://icons.getbootstrap.com/
 - Plantillas: https://startbootstrap.com/?showAngular=false&showVue=false&showPro=false
 
-### Ejercicios Boostrap
+## Ejercicios Boostrap
 
 - https://www.freecodecamp.org/learn/front-end-development-libraries/bootstrap/use-responsive-design-with-bootstrap-fluid-containers
 
-## Datatables.net
+# Datatables.net
 
 - https://datatables.net/
 
-### Ejemplos de Datatables
+## Ejemplos de Datatables
 
 - https://datatables.net/examples/index
+
+# JavaScript
+
+- Tutorial: https://uniwebsidad.com/libros/javascript
+- Libro: https://es.javascript.info/
+
+## Ejercicios
+
+- Básicos: https://www.freecodecamp.org/espanol/learn/javascript-algorithms-and-data-structures-v8/learn-introductory-javascript-by-building-a-pyramid-generator/step-1
