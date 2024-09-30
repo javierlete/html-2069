@@ -89,3 +89,7 @@
 ## Ejercicios
 
 - Básicos: https://www.freecodecamp.org/espanol/learn/javascript-algorithms-and-data-structures-v8/learn-introductory-javascript-by-building-a-pyramid-generator/step-1
+
+# Accesibilidad
+
+- Ciego muestra cómo utiliza los dispositivos: https://www.youtube.com/watch?v=Iw4vXFDniZs
