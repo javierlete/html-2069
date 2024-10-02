@@ -93,3 +93,11 @@
 # Accesibilidad
 
 - Ciego muestra cómo utiliza los dispositivos: https://www.youtube.com/watch?v=Iw4vXFDniZs
+
+# JAVA
+
+- Tutorial de Java de Oracle: https://docs.oracle.com/javase/tutorial/
+
+## Ejercicios
+
+- Básicos: https://puntocomnoesunlenguaje.blogspot.com/p/ejercicios.html
