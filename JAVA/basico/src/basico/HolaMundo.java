@@ -47,6 +47,24 @@ public class HolaMundo {
 		nombre = sc.nextLine();
 		
 		System.out.println("Hola " + nombre);
+
+		int i = 1;
+		
+		long l = 3123123123L;
+		
+		System.out.println(i);
+		
+		System.out.println(l);
+		
+		char letra = 'c';
+		
+		System.out.println(letra);
+		
+		boolean encendido = false;
+		
+		encendido = true;
+		
+		System.out.println(encendido);
 		
 		sc.close();
 	}
