@@ -9,15 +9,18 @@ public class AdivinaElNumero {
 		double numeroConDecimales = Math.random() * 100.0 + 1.0;
 		int numeroAdivinar = (int) numeroConDecimales;
 
-//		System.out.println(numeroConDecimales);
-//		System.out.println(numeroAdivinar);
-
+		int intentos = 0;
+		
 		boolean seguir = true;
 		
 		while (seguir) {
 			System.out.println("Dime un número:");
 
 			int numero = sc.nextInt();
+			
+			intentos++; // intentos += 1; intentos = intentos + 1;
+			
+			System.out.println("Llevas " + intentos + " intentos");
 
 			if (numero == numeroAdivinar) {
 				System.out.println("Felicidades. Has acertado");
