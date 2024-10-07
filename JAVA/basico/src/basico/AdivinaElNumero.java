@@ -6,9 +6,9 @@ public class AdivinaElNumero {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		String respuesta = "s";
+		String respuesta;
 
-		while (respuesta.equals("s")) {
+		do {
 			double numeroConDecimales = Math.random() * 100.0 + 1.0;
 			int numeroAdivinar = (int) numeroConDecimales;
 
@@ -41,7 +41,7 @@ public class AdivinaElNumero {
 
 			sc.nextLine();
 			respuesta = sc.nextLine();
-		}
+		} while (respuesta.equals("s"));
 
 		System.out.println("¡Gracias por jugar!");
 		
