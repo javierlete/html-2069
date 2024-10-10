@@ -9,13 +9,17 @@ public class Consola {
 		System.out.print(mensaje);
 	}
 	
+	public static void pl() {
+		System.out.println();
+	}
+	
 	public static void pl(String mensaje) {
 		System.out.println(mensaje);
 	}
 	
 	public static String pedirTexto(String mensaje) {
 		p(mensaje + ": ");
-		return sc.nextLine();
+		return sc.nextLine().trim();
 	}
 	
 	public static Integer pedirEntero(String mensaje) {
