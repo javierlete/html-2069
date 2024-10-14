@@ -8,7 +8,7 @@ public class Aplicacion {
 	private static final int SALIR = 0;
 
 	private static final ArrayList<String> nombres = new ArrayList<String>();
-	
+
 	public static void main(String[] args) {
 		int opcion;
 
@@ -40,7 +40,7 @@ public class Aplicacion {
 	private static void procesarOpcion(int opcion) {
 		pl();
 		pl("----------------------------------");
-		
+
 		switch (opcion) {
 		case 1:
 			listado();
@@ -70,60 +70,60 @@ public class Aplicacion {
 		pl("LISTADO");
 		pl("-------");
 		pl();
-		
-		if(nombres.size() == 0) {
+
+		if (nombres.size() == 0) {
 			pl("NO HAY NOMBRES");
 		}
-		
-		for(String nombre: nombres) {
+
+		for (String nombre : nombres) {
 			pl(nombre);
 		}
-		
+
 		pl();
 	}
 
 	private static void anyadir() {
 		String nombre = pedirNombre("Dime el nombre");
-		
+
 		nombres.add(nombre);
 	}
 
 	private static void modificar() {
 		String nombre = pedirNombre("Dime el nombre original");
-		
+
 		nombres.remove(nombre);
-		
+
 		String nuevo = pedirNombre("Dime el nombre nuevo");
-		
+
 		nombres.add(nuevo);
 	}
 
 	private static void borrar() {
 		String nombre = pedirNombre("Dime el nombre");
-		
+
 		nombres.remove(nombre);
 	}
 
 	private static String pedirNombre(String mensaje) {
 		String texto;
-		
+
 		do {
 			texto = pedirTexto(mensaje);
-			
-			if(texto.isEmpty()) {
+
+			if (texto.isEmpty()) {
 				pl("Debes introducir un texto");
 			}
 		} while (texto.isEmpty());
-		
+
 		String nombre = formateado(texto);
-		
+
 		return nombre;
 	}
 
 	private static String formateado(String texto) {
 		char inicial = Character.toUpperCase(texto.charAt(0));
 		String resto = texto.substring(1).toLowerCase();
-		
+
 		return inicial + resto;
 	}
 }
