@@ -1,9 +1,14 @@
 package bibliotecas;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class Consola {
-	public static Scanner sc = new Scanner(System.in);
+	private static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+	
+	public static final Scanner sc = new Scanner(System.in);
 	
 	public static void p(String mensaje) {
 		System.out.print(mensaje);
@@ -37,6 +42,26 @@ public class Consola {
 				pl("El formato no es correcto");
 			} 
 		} while (!esNumero);
+		
+		return resultado;
+	}
+
+	public static LocalDateTime pedirFecha(String mensaje) {
+		LocalDateTime resultado = null;
+		String texto;
+		boolean esFecha = false;
+		
+		do {
+			texto = pedirTexto(mensaje + " (AAAA-MM-DD HH:MM) ");
+			
+			try {
+				// TODO Admitir formatos externos
+				resultado = LocalDateTime.parse(texto, FORMATO_FECHA);
+				esFecha = true;
+			} catch (DateTimeParseException e) {
+				pl("El formato no es correcto");
+			} 
+		} while (!esFecha);
 		
 		return resultado;
 	}
