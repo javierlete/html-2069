@@ -31,6 +31,8 @@ public class AplicacionRegistro {
 		pl();
 		pl("1. Listado");
 		pl("2. Añadir");
+		pl("3. Modificar");
+		pl("4. Borrar");
 		pl();
 		pl("0. SALIR");
 	}
@@ -47,6 +49,8 @@ public class AplicacionRegistro {
 		switch(opcion) {
 		case 1: listado(); break;
 		case 2: anyadir(); break;
+		case 3: modificar(); break;
+		case 4: borrar(); break;
 		case 0: pl("Gracias por usar esta aplicación"); break;
 		default: pl("NO CONOZCO ESA OPCIÓN");
 		}
@@ -56,16 +60,12 @@ public class AplicacionRegistro {
 	}
 
 	private static void listado() {
-		pl("LISTADO");
-		
 		for(Registro r: registros) {
 			System.out.println(r);
 		}
 	}
 
 	private static void anyadir() {
-		pl("AÑADIR");
-
 		Registro registro = new Registro();
 		
 		do {
@@ -104,7 +104,23 @@ public class AplicacionRegistro {
 		
 		registros.add(registro);
 	}
+
+	private static void modificar() {
+		borrar();
+		anyadir();
+	}
 	
-	// TODO modificar
-	// TODO borrar
+	private static void borrar() {
+		String dni = pedirTexto("Dime el DNI a borrar");
+
+		for(int i = 0; i < registros.size(); i++) {
+			Registro registro = registros.get(i);
+			
+			if(registro.getDni().equals(dni)) {
+				registros.remove(i);
+				break;
+			}
+		}
+	}
+
 }
