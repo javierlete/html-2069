@@ -69,9 +69,17 @@ public class AplicacionRegistro {
 		// TODO verificar el DNI si es válido
 		String dni = pedirTexto("DNI");
 		
-		LocalDateTime horaEntrada = pedirFecha("Hora entrada");
-		LocalDateTime horaSalida = pedirFecha("Hora salida");
-		// TODO verificar si la hora de salida es posterior a la de entrada
+		LocalDateTime horaEntrada;
+		LocalDateTime horaSalida;
+		
+		do {
+			horaEntrada = pedirFecha("Hora entrada");
+			horaSalida = pedirFecha("Hora salida");
+			
+			if (horaEntrada.isAfter(horaSalida)) {
+				pl("La hora de entrada no puede ser posterior a la hora de salida");
+			} 
+		} while (horaEntrada.isAfter(horaSalida));
 		
 		registros.add(new Registro(nombre, apellidos, dni, horaEntrada, horaSalida));
 	}
