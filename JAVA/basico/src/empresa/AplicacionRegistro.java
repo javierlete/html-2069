@@ -62,12 +62,27 @@ public class AplicacionRegistro {
 
 	private static void anyadir() {
 		pl("AÑADIR");
+
+		Registro registro = new Registro();
 		
-		// TODO verificar si el nombre es válido
-		String nombre = pedirTexto("Nombre");
+		do {
+			try {
+				String nombre = pedirTexto("Nombre");
+
+				registro.setNombre(nombre);
+			} catch (Exception e) {
+				pl("Error en el nombre");
+			} 
+		} while (registro.getNombre() == null);
+		
 		String apellidos = pedirTexto("Apellidos");
+		
+		registro.setApellidos(apellidos);
+		
 		// TODO verificar el DNI si es válido
 		String dni = pedirTexto("DNI");
+		
+		registro.setDni(dni);
 		
 		LocalDateTime horaEntrada;
 		LocalDateTime horaSalida;
@@ -81,7 +96,10 @@ public class AplicacionRegistro {
 			} 
 		} while (horaEntrada.isAfter(horaSalida));
 		
-		registros.add(new Registro(nombre, apellidos, dni, horaEntrada, horaSalida));
+		registro.setHoraEntrada(horaEntrada);
+		registro.setHoraSalida(horaSalida);
+		
+		registros.add(registro);
 	}
 	
 	// TODO modificar
