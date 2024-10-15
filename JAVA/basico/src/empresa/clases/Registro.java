@@ -74,6 +74,7 @@ public class Registro {
 		this.horaSalida = horaSalida;
 	}
 	
+	// Getter extra hecho a mano en base a un cálculo
 	public Duration getDuracion() {
 		return Duration.between(horaEntrada, horaSalida);
 	}
