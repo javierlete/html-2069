@@ -47,16 +47,19 @@ public class Consola {
 	}
 
 	public static LocalDateTime pedirFecha(String mensaje) {
+		return pedirFecha(mensaje, FORMATO_FECHA);
+	}
+	
+	public static LocalDateTime pedirFecha(String mensaje, DateTimeFormatter formateador) {
 		LocalDateTime resultado = null;
 		String texto;
 		boolean esFecha = false;
 		
 		do {
-			texto = pedirTexto(mensaje + " (AAAA-MM-DD HH:MM) ");
+			texto = pedirTexto(mensaje);
 			
 			try {
-				// TODO Admitir formatos externos
-				resultado = LocalDateTime.parse(texto, FORMATO_FECHA);
+				resultado = LocalDateTime.parse(texto, formateador);
 				esFecha = true;
 			} catch (DateTimeParseException e) {
 				pl("El formato no es correcto");

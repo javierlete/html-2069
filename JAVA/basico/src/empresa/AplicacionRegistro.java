@@ -3,6 +3,7 @@ package empresa;
 import static bibliotecas.Consola.*;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import empresa.clases.Registro;
@@ -11,6 +12,8 @@ public class AplicacionRegistro {
 	private static final int SALIR = 0;
 
 	private static final ArrayList<Registro> registros = new ArrayList<>();
+
+	private static final DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 	
 	public static void main(String[] args) {
 		int opcion;
@@ -88,8 +91,8 @@ public class AplicacionRegistro {
 		LocalDateTime horaSalida;
 		
 		do {
-			horaEntrada = pedirFecha("Hora entrada");
-			horaSalida = pedirFecha("Hora salida");
+			horaEntrada = pedirFecha("Hora entrada", formateador);
+			horaSalida = pedirFecha("Hora salida", formateador);
 			
 			if (horaEntrada.isAfter(horaSalida)) {
 				pl("La hora de entrada no puede ser posterior a la hora de salida");
