@@ -23,6 +23,15 @@ public class Recibir extends HttpServlet {
 		
 		int veces = Integer.parseInt(sVeces);
 		
+		out.println("""
+				<!DOCTYPE html>
+				<html>
+				<head>
+					<title>Repeticiones</title>
+				</head>
+				<body>
+				""");
+		
 		out.println("<ul>");
 
 		for (int i = 1; i <= veces; i++) {
@@ -30,5 +39,10 @@ public class Recibir extends HttpServlet {
 		}
 
 		out.println("</ul>");
+		
+		out.println("""
+				</body>
+				</html>
+				""");
 	}
 }
