@@ -97,6 +97,7 @@
 # JAVA
 
 - Tutorial de Java de Oracle: https://docs.oracle.com/javase/tutorial/
+- Tutorial de Java de W3Schools: https://www.w3schools.com/java/default.asp
 
 ## Ejercicios
 
