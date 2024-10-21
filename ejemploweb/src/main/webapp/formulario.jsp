@@ -1,20 +1,11 @@
+<%@page import="tienda.modelos.Producto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%@ include file="includes/cabecera.jsp"%>
 
 <%
-String sId = request.getParameter("id");
-Long id = Long.parseLong(sId);
-
-Producto producto = null;
-
-for(Producto p: productos) {
-	if(p.getId() == id) {
-		producto = p;
-		break;
-	}
-}
+Producto producto = (Producto) request.getAttribute("producto");
 %>
 
 <main class="container mt-4 mb-5 pb-5">
@@ -22,7 +13,8 @@ for(Producto p: productos) {
 		<div class="row mb-3">
 			<label for="id" class="col-sm-2 col-form-label">Id</label>
 			<div class="col-sm">
-				<input readonly class="form-control" id="id" value="<%=producto.getId()%>">
+				<input readonly class="form-control" id="id"
+					value="<%=producto.getId()%>">
 			</div>
 		</div>
 		<div class="row mb-3">
