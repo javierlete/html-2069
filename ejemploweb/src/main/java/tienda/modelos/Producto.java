@@ -1,4 +1,4 @@
-package tienda.clases;
+package tienda.modelos;
 
 public class Producto {
 	private Long id;
