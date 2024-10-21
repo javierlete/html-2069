@@ -7,7 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import tienda.modelos.Producto;
+import tienda.accesodatos.ProductosAccesoDatos;
 
 @WebServlet("/borrar")
 public class BorrarServlet extends HttpServlet {
@@ -25,15 +25,10 @@ public class BorrarServlet extends HttpServlet {
 		// NO HACE FALTA
 
 		// 4. Lógica de negocio (hacer con los datos lo que haya que hacer)
-		for (Producto p : Globales.productos) {
-			if (p.getId() == id) {
-				Globales.productos.remove(p);
-				break;
-			}
-		}
-
+		ProductosAccesoDatos.borrarProducto(id);
+		
 		// 5. Preparar información para la nueva vista
-		request.setAttribute("productos", Globales.productos);
+		request.setAttribute("productos", ProductosAccesoDatos.listadoProductos());
 
 		// 6. Ir a la nueva vista
 		request.getRequestDispatcher("admin.jsp").forward(request, response);
