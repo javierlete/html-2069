@@ -1,16 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="tienda.clases.Producto"%>
-<%
-ArrayList<Producto> productos = new ArrayList<Producto>();
-
-productos.add(new Producto(1L, "Portátil", 1234.56));
-productos.add(new Producto(2L, "Teclado", 34.56));
-productos.add(new Producto(3L, "Ratón", 12.56));
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,11 +28,11 @@ productos.add(new Producto(3L, "Ratón", 12.56));
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-sm-0">
-					<li class="nav-item"><a class="nav-link" href="index.jsp">Principal</a>
+					<li class="nav-item"><a class="nav-link" href="index">Principal</a>
 					</li>
 				</ul>
 				<ul class="navbar-nav mb-2 mb-sm-0">
-					<li class="nav-item"><a class="nav-link" href="admin.jsp">Administración</a>
+					<li class="nav-item"><a class="nav-link" href="admin">Administración</a>
 					</li>
 					<li class="navbar-text">Javier Lete</li>
 					<li class="nav-item"><a class="nav-link" href="#">Cerrar
