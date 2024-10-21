@@ -9,11 +9,12 @@ Producto producto = (Producto) request.getAttribute("producto");
 %>
 
 <main class="container mt-4 mb-5 pb-5">
-	<form action="admin.html" class="needs-validation" novalidate>
+	<form action="formulario" method="post" class="needs-validation"
+		novalidate>
 		<div class="row mb-3">
 			<label for="id" class="col-sm-2 col-form-label">Id</label>
 			<div class="col-sm">
-				<input readonly class="form-control" id="id"
+				<input readonly class="form-control" id="id" name="id"
 					value="<%=producto.getId()%>">
 			</div>
 		</div>
@@ -21,7 +22,7 @@ Producto producto = (Producto) request.getAttribute("producto");
 			<label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
 			<div class="col-sm">
 				<input type="text" required minlength="3" class="form-control"
-					id="nombre" value="<%=producto.getNombre()%>">
+					id="nombre" name="nombre" value="<%=producto.getNombre()%>">
 				<div class="invalid-feedback">El nombre es obligatorio y debe
 					tener al menos 3 letras</div>
 			</div>
@@ -30,7 +31,8 @@ Producto producto = (Producto) request.getAttribute("producto");
 			<label for="precio" class="col-sm-2 col-form-label">Precio</label>
 			<div class="col-sm">
 				<input type="number" step=".01" required min="0"
-					class="form-control" id="precio" value="<%=producto.getPrecio()%>">
+					class="form-control" id="precio" name="precio"
+					value="<%=producto.getPrecio()%>">
 				<div class="invalid-feedback">El precio es obligatorio y debe
 					ser positivo</div>
 			</div>

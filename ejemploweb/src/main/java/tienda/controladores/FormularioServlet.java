@@ -35,4 +35,38 @@ public class FormularioServlet extends HttpServlet {
 		request.setAttribute("producto", producto);
 		request.getRequestDispatcher("formulario.jsp").forward(request, response);
 	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// 1. Recibir información de la petición
+		String sId = request.getParameter("id");
+		String nombre = request.getParameter("nombre");
+		String sPrecio = request.getParameter("precio");
+		
+		// 2. Convertir lo que sea necesario
+		Long id = Long.parseLong(sId);
+		Double precio = Double.parseDouble(sPrecio);
+		
+		// 3. Empaquetar en modelo
+		Producto producto = new Producto(id, nombre, precio);
+		
+		// 4. Lógica de negocio (hacer con los datos lo que haya que hacer)
+		if(id == 0) {
+			Globales.productos.add(producto);
+		} else {
+			for (Producto p : Globales.productos) {
+				if (p.getId() == id) {
+					Globales.productos.remove(p);
+					Globales.productos.add(producto);
+					break;
+				}
+			}
+		}
+		
+		// 5. Preparar información para la nueva vista
+		request.setAttribute("productos", Globales.productos);
+
+		// 6. Ir a la nueva vista
+		request.getRequestDispatcher("admin.jsp").forward(request, response);
+	}
 }

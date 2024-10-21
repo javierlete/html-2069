@@ -31,7 +31,7 @@ ArrayList<Producto> productos = (ArrayList<Producto>)request.getAttribute("produ
 				<td class="text-end"><%=producto.getPrecio() %></td>
 				<td><a class="btn btn-sm btn-primary" href="formulario?id=<%=producto.getId()%>"><i
 						class="bi bi-pencil-fill"></i></a> <a class="btn btn-sm btn-danger"
-					href="#"><i class="bi bi-trash-fill"></i></a></td>
+					href="borrar?id=<%=producto.getId()%>"><i class="bi bi-trash-fill"></i></a></td>
 			</tr>
 			<%
 			}
