@@ -6,14 +6,14 @@ import java.time.LocalDateTime;
 public class Mensaje {
 	private Long id;
 	private String emisor;
-	private String mensaje;
+	private String texto;
 	private LocalDateTime fechaHora;
 
-	public Mensaje(Long id, String emisor, String mensaje, LocalDateTime fechaHora) {
+	public Mensaje(Long id, String emisor, String texto, LocalDateTime fechaHora) {
 		super();
 		this.id = id;
 		this.emisor = emisor;
-		this.mensaje = mensaje;
+		this.texto = texto;
 		this.fechaHora = fechaHora;
 	}
 
@@ -33,12 +33,12 @@ public class Mensaje {
 		this.emisor = emisor;
 	}
 
-	public String getMensaje() {
-		return mensaje;
+	public String getTexto() {
+		return texto;
 	}
 
-	public void setMensaje(String mensaje) {
-		this.mensaje = mensaje;
+	public void setTexto(String texto) {
+		this.texto = texto;
 	}
 
 	public LocalDateTime getFechaHora() {
@@ -52,17 +52,17 @@ public class Mensaje {
 	public String getFechaHoraFormateado() {
 		LocalDate diaMensaje = fechaHora.toLocalDate();
 		LocalDate hoy = LocalDate.now();
-		
-		if(diaMensaje.equals(hoy)) {
+
+		if (diaMensaje.equals(hoy)) {
 			return String.format("%1$tH:%1$tM", fechaHora);
 		} else {
 			return String.format("%1$tY-%1$tm-%1$td %1$tH:%1$tM", fechaHora);
 		}
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Mensaje [id=" + id + ", emisor=" + emisor + ", mensaje=" + mensaje + ", fechaHora=" + fechaHora + "]";
+		return "Mensaje [id=" + id + ", emisor=" + emisor + ", mensaje=" + texto + ", fechaHora=" + fechaHora + "]";
 	}
 
 }

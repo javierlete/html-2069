@@ -20,7 +20,7 @@ ArrayList<Mensaje> mensajes = (ArrayList<Mensaje>) request.getAttribute("mensaje
 			%>
 			<article>
 				<h2><%=m.getEmisor() %></h2>
-				<p><%=m.getMensaje() %></p>
+				<p><%=m.getTexto() %></p>
 				<p><%=m.getFechaHoraFormateado() %></p>
 			</article>
 			<%
@@ -28,9 +28,9 @@ ArrayList<Mensaje> mensajes = (ArrayList<Mensaje>) request.getAttribute("mensaje
 			%>
 		</section>
 
-		<form>
-			<input name="emisor" value="Juan" placeholder="Pon tu nombre">
-			<input name="mensaje" value="" placeholder="Escribe tu mensaje">
+		<form action="index" method="post">
+			<input name="emisor" value="" placeholder="Pon tu nombre">
+			<input name="texto" value="" placeholder="Escribe tu mensaje">
 			<button>Enviar</button>
 		</form>
 	</main>

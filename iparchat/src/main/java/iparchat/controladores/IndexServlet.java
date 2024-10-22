@@ -11,23 +11,31 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/IndexServlet")
+@WebServlet("/index")
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Mensaje> mensajes = new ArrayList<Mensaje>();
-		
+	private static final ArrayList<Mensaje> mensajes = new ArrayList<Mensaje>();
+	
+	static {
 		mensajes.add(new Mensaje(1L, "Pepe", "Ola ke ase", LocalDateTime.now().minusDays(1)));
 		mensajes.add(new Mensaje(2L, "Javier", "Pues nada, aquí dando clase", LocalDateTime.now()));
-		
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("mensajes", mensajes);
 		
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		String emisor = request.getParameter("emisor");
+		String texto = request.getParameter("texto");
+		
+		Mensaje mensaje = new Mensaje(null, emisor, texto, LocalDateTime.now());
+		
+		mensajes.add(mensaje);
+		
+		response.sendRedirect("index");
 	}
 
 }
