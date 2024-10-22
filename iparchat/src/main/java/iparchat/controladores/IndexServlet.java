@@ -10,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/index")
 public class IndexServlet extends HttpServlet {
@@ -35,7 +36,11 @@ public class IndexServlet extends HttpServlet {
 		
 		mensajes.add(mensaje);
 		
-		response.sendRedirect("index");
+		HttpSession session  = request.getSession();
+		
+		session.setAttribute("emisor", emisor);
+		
+		response.sendRedirect("index#formulario");
 	}
 
 }
