@@ -14,6 +14,7 @@ ArrayList<Mensaje> mensajes = (ArrayList<Mensaje>) request.getAttribute("mensaje
 </head>
 <body>
 	<main>
+		<a href="#formulario">Abajo</a>
 		<section id="chat">
 			<%
 			for (Mensaje m : mensajes) {
@@ -28,7 +29,7 @@ ArrayList<Mensaje> mensajes = (ArrayList<Mensaje>) request.getAttribute("mensaje
 			%>
 		</section>
 
-		<form action="index" method="post">
+		<form id="formulario" action="index#formulario" method="post">
 			<input name="emisor" value="" placeholder="Pon tu nombre">
 			<input name="texto" value="" placeholder="Escribe tu mensaje">
 			<button>Enviar</button>
