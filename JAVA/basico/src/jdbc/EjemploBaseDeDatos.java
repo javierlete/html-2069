@@ -3,6 +3,14 @@ package jdbc;
 import java.sql.*;
 
 public class EjemploBaseDeDatos {
+	static {
+		try {
+			Class.forName("org.sqlite.JDBC");
+		} catch (ClassNotFoundException e) {
+			System.out.println("No se ha encontrado el driver de SQLite");
+		}
+	}
+	
 	public static void main(String[] args) throws SQLException {
 //		String url = "jdbc:mysql://basededatos.com:3306/basededatos";
 //		String user = "root";
