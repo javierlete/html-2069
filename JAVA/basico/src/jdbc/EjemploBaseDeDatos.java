@@ -10,15 +10,20 @@ public class EjemploBaseDeDatos {
 
 		String url = "jdbc:sqlite:bdd/ejemplo.db";
 
-		String sql = "SELECT * FROM productos";
+		String sqlSelect = "SELECT * FROM productos";
+		String sqlInsert = "INSERT INTO productos (nombre, precio) VALUES ('NUEVO', 1234.56)";
 
 		Connection con = DriverManager.getConnection(url);
 		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery(sql);
+		
+		st.executeUpdate(sqlInsert);
+		
+		ResultSet rs = st.executeQuery(sqlSelect);
 
 		while (rs.next()) {
 			System.out.println(String.format("%3s %-15s %10s", rs.getString("id"), rs.getString("nombre"),
 					rs.getString("precio")));
 		}
+		
 	}
 }
