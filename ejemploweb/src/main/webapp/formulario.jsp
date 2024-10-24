@@ -6,6 +6,9 @@
 
 <%
 Producto producto = (Producto) request.getAttribute("producto");
+
+String errorNombre = (String) request.getAttribute("errorNombre");
+String errorPrecio = (String) request.getAttribute("errorPrecio");
 %>
 
 <main class="container mt-4 mb-5 pb-5">
@@ -21,20 +24,18 @@ Producto producto = (Producto) request.getAttribute("producto");
 		<div class="row mb-3">
 			<label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
 			<div class="col-sm">
-				<input type="text" required minlength="3" class="form-control"
+				<input type="text" class="form-control <%= errorNombre == null ? "" : "is-invalid" %>"
 					id="nombre" name="nombre" value="<%=producto.getNombre()%>">
-				<div class="invalid-feedback">El nombre es obligatorio y debe
-					tener al menos 3 letras</div>
+				<div class="invalid-feedback"><%=errorNombre %></div>
 			</div>
 		</div>
 		<div class="row mb-3">
 			<label for="precio" class="col-sm-2 col-form-label">Precio</label>
 			<div class="col-sm">
-				<input type="number" step=".01" required min="0"
-					class="form-control" id="precio" name="precio"
+				<input type="number" step=".01"
+					class="form-control <%= errorPrecio == null ? "" : "is-invalid" %>" id="precio" name="precio"
 					value="<%=producto.getPrecio()%>">
-				<div class="invalid-feedback">El precio es obligatorio y debe
-					ser positivo</div>
+				<div class="invalid-feedback"><%= errorPrecio %></div>
 			</div>
 		</div>
 
@@ -43,6 +44,11 @@ Producto producto = (Producto) request.getAttribute("producto");
 				<button type="submit" class="btn btn-primary">
 					<i class="bi bi-floppy2-fill"></i>
 				</button>
+				
+				<div class="text-danger">
+					<p><%=errorNombre == null ? "" : errorNombre %></p>					
+					<p><%=errorPrecio == null ? "" : errorPrecio %></p>					
+				</div>
 			</div>
 		</div>
 	</form>
