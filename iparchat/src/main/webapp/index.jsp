@@ -1,3 +1,4 @@
+<%@page import="java.time.LocalDate"%>
 <%@page import="iparchat.modelos.Mensaje"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -19,7 +20,13 @@ String emisor = (String) session.getAttribute("emisor");
 		<a href="#formulario">Abajo</a>
 		<section id="chat">
 			<%
+			Mensaje anterior = null;
+			
 			for (Mensaje m : mensajes) {
+				if(m.getFechaHora().toLocalDate().compareTo(LocalDate.now()) == 0 &&
+						anterior.getFechaHora().toLocalDate().compareTo(LocalDate.now())< 0) {
+					out.println("<hr>");
+				}
 			%>
 			<article>
 				<h2><%=m.getEmisor()%></h2>
@@ -27,6 +34,7 @@ String emisor = (String) session.getAttribute("emisor");
 				<p><%=m.getFechaHoraFormateado()%></p>
 			</article>
 			<%
+				anterior = m;
 			}
 			%>
 		</section>
