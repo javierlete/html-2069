@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import iparovo.modelos.Plato;
 import iparovo.modelos.Restaurante;
 
 // Data Access Object
@@ -63,5 +64,15 @@ public class RestauranteDao {
 		} catch (SQLException e) {
 			throw new RuntimeException("Ha habido un error en la consulta", e);
 		}
+	}
+	
+	public static ArrayList<Plato> obtenerPlatosPorIdRestaurante(Long id) {
+		var platos = new ArrayList<Plato>();
+		
+		for(int i = 0; i < 20; i++) {
+			platos.add(new Plato((long)i, "Plato " + i, id * i * 1.0));
+		}
+		
+		return platos;
 	}
 }
