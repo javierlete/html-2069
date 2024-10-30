@@ -1,3 +1,5 @@
+<%@page import="iparovo.modelos.Plato"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="iparovo.modelos.Restaurante"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -6,6 +8,9 @@
 
 <%
 Restaurante restaurante = (Restaurante) request.getAttribute("restaurante");
+
+@SuppressWarnings("unchecked")
+ArrayList<Plato> platos = (ArrayList<Plato>) request.getAttribute("platos");
 %>
 
 <main class="container mt-4 mb-5 pb-5">
@@ -30,18 +35,18 @@ Restaurante restaurante = (Restaurante) request.getAttribute("restaurante");
 	<div
 		class="mt-4 row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-4">
 		<%
-		for (int i = 1; i <= 20; i++) {
+		for (Plato p: platos) {
 		%>
 		<div class="col">
 			<div class="card mb-3" style="max-width: 540px;">
 				<div class="row g-0">
 					<div class="col-md-4">
-						<img src="https://picsum.photos/300/400?<%=i %>" class="img-fluid rounded-start" alt="...">
+						<img src="https://picsum.photos/300/400?<%=p.getId() %>" class="img-fluid rounded-start" alt="...">
 					</div>
 					<div class="col-md-8">
 						<div class="card-body">
-							<h5 class="card-title"><a class="stretched-link text-dark link-underline-light" href="cesta.jsp">IparBurger gigante</a></h5>
-							<p class="card-text">19,99€</p>
+							<h5 class="card-title"><a class="stretched-link text-dark link-underline-light" href="cesta.jsp"><%=p.getNombre() %></a></h5>
+							<p class="card-text"><%=String.format("%.2f", p.getPrecio()) %>€</p>
 						</div>
 					</div>
 				</div>

@@ -1,8 +1,10 @@
 package iparovo.controladores;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import iparovo.accesodatos.RestauranteDao;
+import iparovo.modelos.Plato;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,7 +19,14 @@ public class RestauranteServlet extends HttpServlet {
 		String sId = request.getParameter("id");
 		Long id = Long.parseLong(sId);
 		
+		var platos = new ArrayList<Plato>();
+		
+		for(int i = 1; i <= 20; i++) {
+			platos.add(new Plato((long)i, "Plato " + i, 1.11 * i));
+		}
+		
 		request.setAttribute("restaurante", RestauranteDao.obtenerPorId(id));
+		request.setAttribute("platos", platos);
 		
 		request.getRequestDispatcher("restaurante.jsp").forward(request, response);
 	}
