@@ -17,6 +17,7 @@ public class RestauranteDao {
 
 	private static final String sqlSelect = "SELECT * FROM restaurantes";
 	private static final String sqlSelectId = sqlSelect + " WHERE id=";
+	private static final String sqlSelectIdPlatos = "SELECT * FROM platos WHERE restaurante_id=";
 
 	static {
 		try {
@@ -69,10 +70,20 @@ public class RestauranteDao {
 	public static ArrayList<Plato> obtenerPlatosPorIdRestaurante(Long id) {
 		var platos = new ArrayList<Plato>();
 		
-		for(int i = 0; i < 20; i++) {
-			platos.add(new Plato((long)i, "Plato " + i, id * i * 1.0));
+		try (Connection con = DriverManager.getConnection(url);
+				Statement st = con.createStatement();
+				ResultSet rs = st.executeQuery(sqlSelectIdPlatos + id)) {
+			Plato plato;
+
+			while (rs.next()) {
+				plato = new Plato(rs.getLong("id"), rs.getString("nombre"), rs.getDouble("precio"));
+				
+				platos.add(plato);
+			}
+
+			return platos;
+		} catch (SQLException e) {
+			throw new RuntimeException("Ha habido un error en la consulta", e);
 		}
-		
-		return platos;
 	}
 }
