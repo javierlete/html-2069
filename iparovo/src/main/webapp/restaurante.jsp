@@ -45,7 +45,7 @@ ArrayList<Plato> platos = (ArrayList<Plato>) request.getAttribute("platos");
 					</div>
 					<div class="col-md-8">
 						<div class="card-body">
-							<h5 class="card-title"><a class="stretched-link text-dark link-underline-light" href="cesta.jsp"><%=p.getNombre() %></a></h5>
+							<h5 class="card-title"><a class="stretched-link text-dark link-underline-light" href="cesta?idrestaurante=<%=restaurante.getId()%>&idplato=<%=p.getId()%>"><%=p.getNombre() %></a></h5>
 							<p class="card-text"><%=String.format("%.2f", p.getPrecio()) %>€</p>
 						</div>
 					</div>

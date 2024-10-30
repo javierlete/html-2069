@@ -19,6 +19,8 @@ public class RestauranteDao {
 	private static final String sqlSelectId = sqlSelect + " WHERE id=";
 	private static final String sqlSelectIdPlatos = "SELECT * FROM platos WHERE restaurante_id=";
 
+	private static final String sqlSelectPlatoPorId = "SELECT * FROM platos WHERE id=";
+
 	static {
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -82,6 +84,22 @@ public class RestauranteDao {
 			}
 
 			return platos;
+		} catch (SQLException e) {
+			throw new RuntimeException("Ha habido un error en la consulta", e);
+		}
+	}
+
+	public static Plato obtenerPlatoPorId(Long id) {
+		try (Connection con = DriverManager.getConnection(url);
+				Statement st = con.createStatement();
+				ResultSet rs = st.executeQuery(sqlSelectPlatoPorId + id)) {
+			Plato plato = null;
+
+			if (rs.next()) {
+				plato = new Plato(rs.getLong("id"), rs.getString("nombre"), rs.getDouble("precio"));
+			}
+
+			return plato;
 		} catch (SQLException e) {
 			throw new RuntimeException("Ha habido un error en la consulta", e);
 		}
