@@ -23,7 +23,7 @@ ArrayList<Restaurante> restaurantes = (ArrayList<Restaurante>) request.getAttrib
 				<div class="card-body">
 					<h5 class="card-title">
 						<a class="text-dark link-underline-light stretched-link"
-							href="restaurante.jsp"><%=r.getNombre() %></a>
+							href="restaurante?id=<%=r.getId()%>"><%=r.getNombre() %></a>
 					</h5>
 					<p class="card-text">
 						<i class="bi bi-star-fill"></i> <strong><%=r.getEstrellas() %></strong> <%=r.getTipo() %>

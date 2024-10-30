@@ -1,7 +1,12 @@
+<%@page import="iparovo.modelos.Restaurante"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%@ include file="includes/cabecera.jsp"%>
+
+<%
+Restaurante restaurante = (Restaurante) request.getAttribute("restaurante");
+%>
 
 <main class="container mt-4 mb-5 pb-5">
 	<div class="card h-100">
@@ -10,13 +15,13 @@
 		<div class="card-body">
 			<h5 class="card-title">
 				<a class="text-dark link-underline-light stretched-link"
-					href="restaurante.jsp">IparBurger</a>
+					href="restaurante.jsp"><%=restaurante.getNombre() %></a>
 			</h5>
 			<p class="card-text">
-				<i class="bi bi-star-fill"></i> <strong>3.4</strong> Americana <i
-					class="bi bi-clock-history"></i> 20 minutos <i
-					class="bi bi-bicycle"></i> 1,23€ <i class="bi bi-basket"></i> 10€
-				mínimo <i class="bi bi-tag"></i> 10% de descuento
+				<i class="bi bi-star-fill"></i> <strong><%=restaurante.getEstrellas() %></strong> <%=restaurante.getTipo() %> <i
+					class="bi bi-clock-history"></i> <%=restaurante.getMinutosEntrega() %> minutos <i
+					class="bi bi-bicycle"></i> <%=restaurante.getPrecioEntrega() %>€ <i class="bi bi-basket"></i> <%=restaurante.getPrecioMinimo() %> €
+				mínimo <i class="bi bi-tag"></i> <%=restaurante.getDescuento()%>% de descuento
 			</p>
 		</div>
 	</div>

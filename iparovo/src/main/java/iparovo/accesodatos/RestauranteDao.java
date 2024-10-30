@@ -15,6 +15,7 @@ public class RestauranteDao {
 	private static final String url = "jdbc:sqlite:C:\\Users\\curso.IPARTEKAULA\\git\\html-2069\\iparovo\\bdd\\iparovo.db";
 
 	private static final String sqlSelect = "SELECT * FROM restaurantes";
+	private static final String sqlSelectId = sqlSelect + " WHERE id=";
 
 	static {
 		try {
@@ -41,6 +42,24 @@ public class RestauranteDao {
 			}
 
 			return restaurantes;
+		} catch (SQLException e) {
+			throw new RuntimeException("Ha habido un error en la consulta", e);
+		}
+	}
+	
+	public static Restaurante obtenerPorId(Long id) {
+		try (Connection con = DriverManager.getConnection(url);
+				Statement st = con.createStatement();
+				ResultSet rs = st.executeQuery(sqlSelectId + id)) {
+			Restaurante restaurante = null;
+
+			if (rs.next()) {
+				restaurante = new Restaurante(rs.getLong("id"), rs.getString("nombre"), rs.getString("tipo"),
+						rs.getDouble("estrellas"), rs.getInt("minutos_entrega"), rs.getDouble("precio_entrega"),
+						rs.getDouble("precio_minimo"), rs.getInt("descuento"));
+			}
+			
+			return restaurante;
 		} catch (SQLException e) {
 			throw new RuntimeException("Ha habido un error en la consulta", e);
 		}
