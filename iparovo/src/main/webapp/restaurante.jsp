@@ -19,8 +19,7 @@ ArrayList<Plato> platos = (ArrayList<Plato>) request.getAttribute("platos");
 			alt="...">
 		<div class="card-body">
 			<h5 class="card-title">
-				<a class="text-dark link-underline-light stretched-link"
-					href="restaurante.jsp"><%=restaurante.getNombre() %></a>
+				<%=restaurante.getNombre() %>
 			</h5>
 			<p class="card-text">
 				<i class="bi bi-star-fill"></i> <strong><%=restaurante.getEstrellas() %></strong> <%=restaurante.getTipo() %> <i
