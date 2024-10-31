@@ -32,7 +32,7 @@ Cesta cesta = (Cesta) session.getAttribute("cesta");
 						</button>
 					</form>
 				</td>
-				<td class="text-end"><%=linea.getTotal()%> €</td>
+				<td class="text-end" style="width: 8rem"><%=String.format("%.2f", linea.getTotal())%> €</td>
 			</tr>
 			<%
 			}
@@ -41,19 +41,19 @@ Cesta cesta = (Cesta) session.getAttribute("cesta");
 		<tfoot>
 			<tr>
 				<td colspan="2">Subtotal</td>
-				<td class="text-end"><%=cesta.getSubTotal()%> €</td>
+				<td class="text-end"><%=String.format("%.2f", cesta.getSubTotal())%> €</td>
 			</tr>
 			<tr>
 				<td colspan="2">Coste de gestión</td>
-				<td class="text-end"><%=cesta.getCosteGestion()%> €</td>
+				<td class="text-end"><%=String.format("%.2f", cesta.getCosteGestion())%> €</td>
 			</tr>
 			<tr>
 				<td colspan="2">Gastos de envío</td>
-				<td class="text-end"><%=cesta.getGastosEnvio()%> €</td>
+				<td class="text-end"><%=String.format("%.2f", cesta.getGastosEnvio())%> €</td>
 			</tr>
 			<tr class="fw-bold">
 				<td colspan="2">Total</td>
-				<td class="text-end"><%=cesta.getTotal()%> €</td>
+				<td class="text-end"><%=String.format("%.2f", cesta.getTotal())%> €</td>
 			</tr>
 		</tfoot>
 	</table>
