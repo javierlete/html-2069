@@ -10,8 +10,10 @@ Cesta cesta = (Cesta) session.getAttribute("cesta");
 %>
 
 <main class="container mt-4 mb-5 pb-5">
+	<h2><%=cesta.getRestaurante().getNombre() %></h2>
+
 	<table class="table table-borderless">
-		<caption>Cesta</caption>
+		<caption><%=cesta.getRestaurante().getNombre() %></caption>
 		<tbody>
 			<%
 			for (Linea linea: cesta.getLineas()) {

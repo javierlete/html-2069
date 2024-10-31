@@ -19,21 +19,27 @@ public class CestaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession sesion = request.getSession();
-		
+
 		String sIdRestaurante = request.getParameter("idrestaurante");
 		String sIdPlato = request.getParameter("idplato");
 
 		Cesta cesta = (Cesta) sesion.getAttribute("cesta");
 
 		if (cesta == null) {
-			Long idRestaurante = Long.parseLong(sIdRestaurante);
-			cesta = new Cesta(null, RestauranteDao.obtenerPorId(idRestaurante));
-			sesion.setAttribute("cesta", cesta);
+			if (sIdRestaurante != null) {
+				Long idRestaurante = Long.parseLong(sIdRestaurante);
+				cesta = new Cesta(null, RestauranteDao.obtenerPorId(idRestaurante));
+				sesion.setAttribute("cesta", cesta);
+			} else {
+				request.getRequestDispatcher("nohaycesta.jsp").forward(request, response);
+			}
 		}
 
-		Long idPlato = Long.parseLong(sIdPlato);
-		
-		cesta.getLineas().add(new Linea(null, RestauranteDao.obtenerPlatoPorId(idPlato), 1));
+		if (sIdPlato != null) {
+			Long idPlato = Long.parseLong(sIdPlato);
+
+			cesta.getLineas().add(new Linea(null, RestauranteDao.obtenerPlatoPorId(idPlato), 1));
+		}
 
 		request.getRequestDispatcher("cesta.jsp").forward(request, response);
 	}
