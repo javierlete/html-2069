@@ -40,7 +40,21 @@ public class CestaServlet extends HttpServlet {
 
 		if (idRestaurante != null && idPlato != null) {
 			if (idRestaurante == cesta.getRestaurante().getId()) {
-				cesta.getLineas().add(new Linea(null, RestauranteDao.obtenerPlatoPorId(idPlato), 1));
+
+				boolean existia = false;
+
+				for (Linea linea : cesta.getLineas()) {
+					if (linea.getPlato().getId() == idPlato) {
+						linea.setCantidad(linea.getCantidad() + 1);
+						existia = true;
+						break;
+					}
+				}
+
+				if (!existia) {
+					cesta.getLineas().add(new Linea(null, RestauranteDao.obtenerPlatoPorId(idPlato), 1));
+				}
+
 			} else {
 				request.getRequestDispatcher("noeselmismorestaurante.jsp").forward(request, response);
 				return;
@@ -82,11 +96,11 @@ public class CestaServlet extends HttpServlet {
 				break;
 			}
 		}
-		
-		if(cesta.getLineas().size() == 0) {
+
+		if (cesta.getLineas().size() == 0) {
 			request.getSession().removeAttribute("cesta");
 		}
-		
+
 		response.sendRedirect("cesta");
 	}
 }
