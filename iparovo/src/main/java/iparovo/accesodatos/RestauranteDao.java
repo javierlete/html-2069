@@ -20,6 +20,8 @@ public class RestauranteDao {
 	private static final String sqlSelectIdPlatos = "SELECT * FROM platos WHERE restaurante_id=";
 
 	private static final String sqlSelectPlatoPorId = "SELECT * FROM platos WHERE id=";
+	
+	private static final String sqlSelectTipos = "SELECT DISTINCT tipo FROM restaurantes";
 
 	static {
 		try {
@@ -104,4 +106,21 @@ public class RestauranteDao {
 			throw new RuntimeException("Ha habido un error en la consulta", e);
 		}
 	}
+	
+	public static ArrayList<String> obtenerTipos() {
+		var tipos = new ArrayList<String>();
+
+		try (Connection con = DriverManager.getConnection(url);
+				Statement st = con.createStatement();
+				ResultSet rs = st.executeQuery(sqlSelectTipos)) {
+			while (rs.next()) {
+				tipos.add(rs.getString(1));
+			}
+
+			return tipos;
+		} catch (SQLException e) {
+			throw new RuntimeException("Ha habido un error en la consulta", e);
+		}
+	}
+	
 }
