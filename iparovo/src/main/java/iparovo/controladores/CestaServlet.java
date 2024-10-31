@@ -70,16 +70,23 @@ public class CestaServlet extends HttpServlet {
 				int cantidad = linea.getCantidad();
 
 				if (sMenos != null) {
-					if (cantidad > 0) {
+					if (cantidad > 1) {
 						linea.setCantidad(cantidad - 1);
+					} else {
+						cesta.getLineas().remove(linea);
 					}
 				} else {
 					linea.setCantidad(cantidad + 1);
 				}
 
-				response.sendRedirect("cesta");
-				return;
+				break;
 			}
 		}
+		
+		if(cesta.getLineas().size() == 0) {
+			request.getSession().removeAttribute("cesta");
+		}
+		
+		response.sendRedirect("cesta");
 	}
 }
