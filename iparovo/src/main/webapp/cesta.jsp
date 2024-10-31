@@ -10,28 +10,27 @@ Cesta cesta = (Cesta) session.getAttribute("cesta");
 %>
 
 <main class="container mt-4 mb-5 pb-5">
-	<h2><%=cesta.getRestaurante().getNombre() %></h2>
+	<h2><%=cesta.getRestaurante().getNombre()%></h2>
 
 	<table class="table table-borderless">
-		<caption><%=cesta.getRestaurante().getNombre() %></caption>
+		<caption><%=cesta.getRestaurante().getNombre()%></caption>
 		<tbody>
 			<%
-			for (Linea linea: cesta.getLineas()) {
+			for (Linea linea : cesta.getLineas()) {
 			%>
 			<tr>
 				<td><%=linea.getPlato().getNombre()%></td>
 				<td>
-					<div class="input-group mb-3" style="width: 8rem">
-						<button class="btn btn-outline-secondary">
+					<form action="cesta" method="post" class="input-group mb-3" style="width: 8rem">
+						<button name="menos" value="<%=linea.getPlato().getId() %>" class="btn btn-outline-secondary">
 							<i class="bi bi-dash-lg"></i>
 						</button>
-						<input type="text" class="form-control" placeholder=""
-							aria-label="Example text with button addon"
-							aria-describedby="button-addon1" value="<%=linea.getCantidad()%>">
-						<button class="btn btn-outline-secondary">
+						<input type="text" class="form-control"
+							value="<%=linea.getCantidad()%>">
+						<button name="mas" value="<%=linea.getPlato().getId() %>" class="btn btn-outline-secondary">
 							<i class="bi bi-plus-lg"></i>
 						</button>
-					</div>
+					</form>
 				</td>
 				<td class="text-end"><%=linea.getTotal()%> €</td>
 			</tr>
@@ -42,19 +41,19 @@ Cesta cesta = (Cesta) session.getAttribute("cesta");
 		<tfoot>
 			<tr>
 				<td colspan="2">Subtotal</td>
-				<td class="text-end"><%=cesta.getSubTotal() %> €</td>
+				<td class="text-end"><%=cesta.getSubTotal()%> €</td>
 			</tr>
 			<tr>
 				<td colspan="2">Coste de gestión</td>
-				<td class="text-end"><%=cesta.getCosteGestion() %> €</td>
+				<td class="text-end"><%=cesta.getCosteGestion()%> €</td>
 			</tr>
 			<tr>
 				<td colspan="2">Gastos de envío</td>
-				<td class="text-end"><%=cesta.getGastosEnvio() %> €</td>
+				<td class="text-end"><%=cesta.getGastosEnvio()%> €</td>
 			</tr>
 			<tr class="fw-bold">
 				<td colspan="2">Total</td>
-				<td class="text-end"><%=cesta.getTotal() %> €</td>
+				<td class="text-end"><%=cesta.getTotal()%> €</td>
 			</tr>
 		</tfoot>
 	</table>

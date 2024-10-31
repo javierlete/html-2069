@@ -49,4 +49,28 @@ public class CestaServlet extends HttpServlet {
 		
 		request.getRequestDispatcher("cesta.jsp").forward(request, response);
 	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String sMenos = request.getParameter("menos");
+		String sMas = request.getParameter("mas");
+		
+		Cesta cesta = (Cesta) request.getSession().getAttribute("cesta");
+		
+		Long idPlato;
+		
+		if(sMenos != null) {
+			idPlato = Long.parseLong(sMenos);
+		} else {
+			idPlato = Long.parseLong(sMas);
+		}
+		
+		for(Linea linea: cesta.getLineas()) {
+			if(linea.getPlato().getId() == idPlato) {
+				linea.setCantidad(linea.getCantidad() + (sMenos != null ? -1 : 1));
+				response.sendRedirect("cesta");
+				return;
+			}
+		}
+	}
 }
