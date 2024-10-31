@@ -22,6 +22,7 @@ public class RestauranteDao {
 	private static final String sqlSelectPlatoPorId = "SELECT * FROM platos WHERE id=";
 	
 	private static final String sqlSelectTipos = "SELECT DISTINCT tipo FROM restaurantes";
+	private static final String sqlSelectPorTipos = "SELECT * FROM restaurantes WHERE tipo='%s'";
 
 	static {
 		try {
@@ -37,6 +38,28 @@ public class RestauranteDao {
 		try (Connection con = DriverManager.getConnection(url);
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery(sqlSelect)) {
+			Restaurante restaurante;
+
+			while (rs.next()) {
+				restaurante = new Restaurante(rs.getLong("id"), rs.getString("nombre"), rs.getString("tipo"),
+						rs.getDouble("estrellas"), rs.getInt("minutos_entrega"), rs.getDouble("precio_entrega"),
+						rs.getDouble("precio_minimo"), rs.getInt("descuento"));
+				
+				restaurantes.add(restaurante);
+			}
+
+			return restaurantes;
+		} catch (SQLException e) {
+			throw new RuntimeException("Ha habido un error en la consulta", e);
+		}
+	}
+	
+	public static ArrayList<Restaurante> obtenerPorTipo(String tipo) {
+		var restaurantes = new ArrayList<Restaurante>();
+
+		try (Connection con = DriverManager.getConnection(url);
+				Statement st = con.createStatement();
+				ResultSet rs = st.executeQuery(String.format(sqlSelectPorTipos, tipo))) {
 			Restaurante restaurante;
 
 			while (rs.next()) {
