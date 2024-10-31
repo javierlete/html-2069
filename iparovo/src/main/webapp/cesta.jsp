@@ -25,7 +25,7 @@ Cesta cesta = (Cesta) session.getAttribute("cesta");
 						<button name="menos" value="<%=linea.getPlato().getId() %>" class="btn btn-outline-secondary">
 							<i class="bi bi-dash-lg"></i>
 						</button>
-						<input type="text" class="form-control"
+						<input type="text" class="form-control" readonly
 							value="<%=linea.getCantidad()%>">
 						<button name="mas" value="<%=linea.getPlato().getId() %>" class="btn btn-outline-secondary">
 							<i class="bi bi-plus-lg"></i>

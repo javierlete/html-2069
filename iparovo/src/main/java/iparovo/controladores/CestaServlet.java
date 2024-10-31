@@ -25,7 +25,7 @@ public class CestaServlet extends HttpServlet {
 
 		Long idRestaurante = sIdRestaurante == null ? null : Long.parseLong(sIdRestaurante);
 		Long idPlato = sIdPlato == null ? null : Long.parseLong(sIdPlato);
-		
+
 		Cesta cesta = (Cesta) sesion.getAttribute("cesta");
 
 		if (cesta == null) {
@@ -37,8 +37,8 @@ public class CestaServlet extends HttpServlet {
 				return;
 			}
 		}
-		
-		if(idRestaurante != null && idPlato != null) {
+
+		if (idRestaurante != null && idPlato != null) {
 			if (idRestaurante == cesta.getRestaurante().getId()) {
 				cesta.getLineas().add(new Linea(null, RestauranteDao.obtenerPlatoPorId(idPlato), 1));
 			} else {
@@ -46,28 +46,37 @@ public class CestaServlet extends HttpServlet {
 				return;
 			}
 		}
-		
+
 		request.getRequestDispatcher("cesta.jsp").forward(request, response);
 	}
-	
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String sMenos = request.getParameter("menos");
 		String sMas = request.getParameter("mas");
-		
+
 		Cesta cesta = (Cesta) request.getSession().getAttribute("cesta");
-		
+
 		Long idPlato;
-		
-		if(sMenos != null) {
+
+		if (sMenos != null) {
 			idPlato = Long.parseLong(sMenos);
 		} else {
 			idPlato = Long.parseLong(sMas);
 		}
-		
-		for(Linea linea: cesta.getLineas()) {
-			if(linea.getPlato().getId() == idPlato) {
-				linea.setCantidad(linea.getCantidad() + (sMenos != null ? -1 : 1));
+
+		for (Linea linea : cesta.getLineas()) {
+			if (linea.getPlato().getId() == idPlato) {
+				int cantidad = linea.getCantidad();
+
+				if (sMenos != null) {
+					if (cantidad > 0) {
+						linea.setCantidad(cantidad - 1);
+					}
+				} else {
+					linea.setCantidad(cantidad + 1);
+				}
+
 				response.sendRedirect("cesta");
 				return;
 			}
