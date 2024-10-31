@@ -23,24 +23,30 @@ public class CestaServlet extends HttpServlet {
 		String sIdRestaurante = request.getParameter("idrestaurante");
 		String sIdPlato = request.getParameter("idplato");
 
+		Long idRestaurante = sIdRestaurante == null ? null : Long.parseLong(sIdRestaurante);
+		Long idPlato = sIdPlato == null ? null : Long.parseLong(sIdPlato);
+		
 		Cesta cesta = (Cesta) sesion.getAttribute("cesta");
 
 		if (cesta == null) {
-			if (sIdRestaurante != null) {
-				Long idRestaurante = Long.parseLong(sIdRestaurante);
+			if (idRestaurante != null) {
 				cesta = new Cesta(null, RestauranteDao.obtenerPorId(idRestaurante));
 				sesion.setAttribute("cesta", cesta);
 			} else {
 				request.getRequestDispatcher("nohaycesta.jsp").forward(request, response);
+				return;
 			}
 		}
-
-		if (sIdPlato != null) {
-			Long idPlato = Long.parseLong(sIdPlato);
-
-			cesta.getLineas().add(new Linea(null, RestauranteDao.obtenerPlatoPorId(idPlato), 1));
+		
+		if(idRestaurante != null && idPlato != null) {
+			if (idRestaurante == cesta.getRestaurante().getId()) {
+				cesta.getLineas().add(new Linea(null, RestauranteDao.obtenerPlatoPorId(idPlato), 1));
+			} else {
+				request.getRequestDispatcher("noeselmismorestaurante.jsp").forward(request, response);
+				return;
+			}
 		}
-
+		
 		request.getRequestDispatcher("cesta.jsp").forward(request, response);
 	}
 }
