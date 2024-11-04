@@ -5,8 +5,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+import iparovo.modelos.Cesta;
+import iparovo.modelos.Linea;
 import iparovo.modelos.Plato;
 import iparovo.modelos.Restaurante;
 
@@ -25,6 +28,9 @@ public class RestauranteDao {
 	private static final String sqlSelectPorTipos = "SELECT * FROM restaurantes WHERE tipo='%s'";
 
 	private static final String sqlSelectPorTexto = "SELECT * FROM restaurantes WHERE nombre LIKE '%%%s%%'";
+
+	private static final String sqlInsertPedido = "INSERT INTO pedidos (fecha, restaurante_id) VALUES ('%s', %s)";
+	private static final String sqlInsertLinea = "INSERT INTO lineas (pedido_id, plato_id, cantidad) VALUES (%s, %s, %s)";
 
 	static {
 		try {
@@ -165,6 +171,27 @@ public class RestauranteDao {
 			}
 
 			return restaurantes;
+		} catch (SQLException e) {
+			throw new RuntimeException("Ha habido un error en la consulta", e);
+		}
+	}
+	
+	public static void insertarPedido(Cesta cesta) {
+		try (Connection con = DriverManager.getConnection(url);
+				Statement st = con.createStatement()) {
+			String sql = String.format(sqlInsertPedido, LocalDateTime.now(), cesta.getRestaurante().getId());
+			
+			st.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+			
+			ResultSet rs = st.getGeneratedKeys();
+			rs.next();
+			
+			Long id = rs.getLong(1);
+			
+			for(Linea linea: cesta.getLineas()) {
+				sql = String.format(sqlInsertLinea, id, linea.getPlato().getId(), linea.getCantidad());
+				st.executeUpdate(sql);
+			}
 		} catch (SQLException e) {
 			throw new RuntimeException("Ha habido un error en la consulta", e);
 		}

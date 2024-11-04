@@ -14,31 +14,27 @@ Cesta cesta = (Cesta) session.getAttribute("cesta");
 
 	<table class="table table-borderless">
 		<caption><%=cesta.getRestaurante().getNombre()%></caption>
+		<thead class="table-secondary">
+			<tr>
+				<th>Nombre</th>
+				<th class="text-end">Cantidad</th>
+				<th class="text-end">Total</th>
+			</tr>
+		</thead>
 		<tbody>
 			<%
 			for (Linea linea : cesta.getLineas()) {
 			%>
 			<tr>
 				<td><%=linea.getPlato().getNombre()%></td>
-				<td>
-					<form action="cesta" method="post" class="input-group mb-3" style="width: 8rem">
-						<button name="menos" value="<%=linea.getPlato().getId() %>" class="btn btn-outline-secondary">
-							<i class="bi bi-dash-lg"></i>
-						</button>
-						<input type="text" class="form-control" readonly
-							value="<%=linea.getCantidad()%>">
-						<button name="mas" value="<%=linea.getPlato().getId() %>" class="btn btn-outline-secondary">
-							<i class="bi bi-plus-lg"></i>
-						</button>
-					</form>
-				</td>
+				<td class="text-end"><%=linea.getCantidad()%></td>
 				<td class="text-end" style="width: 8rem"><%=String.format("%.2f", linea.getTotal())%> €</td>
 			</tr>
 			<%
 			}
 			%>
 		</tbody>
-		<tfoot>
+		<tfoot class="table-secondary">
 			<tr>
 				<td colspan="2">Subtotal</td>
 				<td class="text-end"><%=String.format("%.2f", cesta.getSubTotal())%> €</td>
@@ -54,10 +50,6 @@ Cesta cesta = (Cesta) session.getAttribute("cesta");
 			<tr class="fw-bold">
 				<td colspan="2">Total</td>
 				<td class="text-end"><%=String.format("%.2f", cesta.getTotal())%> €</td>
-			</tr>
-			<tr>
-				<td colspan="2"></td>
-				<td class="text-end"><a href="pedido" class="btn btn-primary">Pedido</a></td>
 			</tr>
 		</tfoot>
 	</table>
