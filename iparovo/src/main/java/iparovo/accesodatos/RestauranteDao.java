@@ -24,6 +24,8 @@ public class RestauranteDao {
 	private static final String sqlSelectTipos = "SELECT DISTINCT tipo FROM restaurantes";
 	private static final String sqlSelectPorTipos = "SELECT * FROM restaurantes WHERE tipo='%s'";
 
+	private static final String sqlSelectPorTexto = "SELECT * FROM restaurantes WHERE nombre LIKE '%%%s%%'";
+
 	static {
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -141,6 +143,28 @@ public class RestauranteDao {
 			}
 
 			return tipos;
+		} catch (SQLException e) {
+			throw new RuntimeException("Ha habido un error en la consulta", e);
+		}
+	}
+
+	public static ArrayList<Restaurante> obtenerPorTexto(String busqueda) {
+		var restaurantes = new ArrayList<Restaurante>();
+
+		try (Connection con = DriverManager.getConnection(url);
+				Statement st = con.createStatement();
+				ResultSet rs = st.executeQuery(String.format(sqlSelectPorTexto, busqueda))) {
+			Restaurante restaurante;
+
+			while (rs.next()) {
+				restaurante = new Restaurante(rs.getLong("id"), rs.getString("nombre"), rs.getString("tipo"),
+						rs.getDouble("estrellas"), rs.getInt("minutos_entrega"), rs.getDouble("precio_entrega"),
+						rs.getDouble("precio_minimo"), rs.getInt("descuento"));
+				
+				restaurantes.add(restaurante);
+			}
+
+			return restaurantes;
 		} catch (SQLException e) {
 			throw new RuntimeException("Ha habido un error en la consulta", e);
 		}

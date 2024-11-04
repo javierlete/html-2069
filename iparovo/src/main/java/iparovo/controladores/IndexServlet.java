@@ -14,20 +14,26 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/index")
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String tipo = request.getParameter("tipo");
-		
+		String busqueda = request.getParameter("busqueda");
+
 		ArrayList<Restaurante> restaurantes;
-		
-		if(tipo == null) {
-			restaurantes = RestauranteDao.obtenerTodos();
+
+		if (tipo == null) {
+			if (busqueda == null) {
+				restaurantes = RestauranteDao.obtenerTodos();
+			} else {
+				restaurantes = RestauranteDao.obtenerPorTexto(busqueda);
+			}
 		} else {
 			restaurantes = RestauranteDao.obtenerPorTipo(tipo);
 		}
-		
+
 		request.setAttribute("restaurantes", restaurantes);
-		
+
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 }
