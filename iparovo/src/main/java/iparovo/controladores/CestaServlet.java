@@ -5,6 +5,7 @@ import java.io.IOException;
 import iparovo.accesodatos.RestauranteDao;
 import iparovo.modelos.Cesta;
 import iparovo.modelos.Linea;
+import iparovo.modelos.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -66,7 +67,9 @@ public class CestaServlet extends HttpServlet {
 
 		if (cesta == null) {
 			if (idRestaurante != null) {
-				cesta = new Cesta(null, RestauranteDao.obtenerPorId(idRestaurante));
+				Usuario usuario = (Usuario) sesion.getAttribute("usuario");
+				
+				cesta = new Cesta(null, usuario, RestauranteDao.obtenerPorId(idRestaurante));
 				sesion.setAttribute("cesta", cesta);
 			}
 		}
