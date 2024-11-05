@@ -1,6 +1,10 @@
+<%@page import="iparovo.modelos.Usuario"%>
 <%@page import="iparovo.accesodatos.RestauranteDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+Usuario usuario = (Usuario) session.getAttribute("usuario");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,6 +43,16 @@
 					<li class="nav-item"><a class="nav-link" href="cesta">Cesta
 							<i class="bi bi-basket"></i>
 					</a></li>
+					<%
+					if (usuario != null) {
+					%>
+					<li class="navbar-text"><%=usuario.getNombre()%></li>
+					<li class="nav-item"><a class="nav-link" href="logout"><i class="bi bi-box-arrow-right"></i></a></li>
+					<%
+					} else {
+					%>
+					<li class="nav-item"><a class="nav-link" href="login"><i class="bi bi-box-arrow-in-right"></i></a></li>
+					<%} %>					
 				</ul>
 			</div>
 		</div>
@@ -49,7 +63,7 @@
 		for (String tipo : RestauranteDao.obtenerTipos()) {
 		%>
 		<li class="nav-item"><a class="text-light nav-link"
-			href="index?tipo=<%=tipo%>"><%=tipo %></a></li>
+			href="index?tipo=<%=tipo%>"><%=tipo%></a></li>
 		<%
 		}
 		%>
