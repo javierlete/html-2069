@@ -6,11 +6,11 @@
 <%@ include file="includes/cabecera.jsp"%>
 
 <%
-Cesta cesta = (Cesta) session.getAttribute("cesta");
+Cesta cesta = (Cesta) request.getAttribute("cesta");
 %>
 
 <main class="container mt-4 mb-5 pb-5">
-	<h2><%=cesta.getRestaurante().getNombre()%></h2>
+	<h2><%=cesta.getRestaurante().getNombre()%>: envío para <%=cesta.getUsuario().getNombre() %></h2>
 
 	<table class="table table-borderless">
 		<caption><%=cesta.getRestaurante().getNombre()%></caption>
