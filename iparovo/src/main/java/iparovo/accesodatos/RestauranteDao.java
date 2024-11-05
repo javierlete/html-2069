@@ -13,10 +13,11 @@ import iparovo.modelos.Linea;
 import iparovo.modelos.Plato;
 import iparovo.modelos.Restaurante;
 
+import static iparovo.accesodatos.Globales.url;
+
 // Data Access Object
 
 public class RestauranteDao {
-	private static final String url = "jdbc:sqlite:C:\\Users\\curso.IPARTEKAULA\\git\\html-2069\\iparovo\\bdd\\iparovo.db";
 
 	private static final String sqlSelect = "SELECT * FROM restaurantes";
 	private static final String sqlSelectId = sqlSelect + " WHERE id=";
