@@ -30,7 +30,7 @@ public class RestauranteDao {
 
 	private static final String sqlSelectPorTexto = "SELECT * FROM restaurantes WHERE nombre LIKE '%%%s%%'";
 
-	private static final String sqlInsertPedido = "INSERT INTO pedidos (fecha, restaurante_id) VALUES ('%s', %s)";
+	private static final String sqlInsertPedido = "INSERT INTO pedidos (fecha, restaurante_id, usuario_id) VALUES ('%s', %s, %s)";
 	private static final String sqlInsertLinea = "INSERT INTO lineas (pedido_id, plato_id, cantidad) VALUES (%s, %s, %s)";
 
 	static {
@@ -180,7 +180,7 @@ public class RestauranteDao {
 	public static void insertarPedido(Cesta cesta) {
 		try (Connection con = DriverManager.getConnection(url);
 				Statement st = con.createStatement()) {
-			String sql = String.format(sqlInsertPedido, LocalDateTime.now(), cesta.getRestaurante().getId());
+			String sql = String.format(sqlInsertPedido, LocalDateTime.now(), cesta.getRestaurante().getId(), cesta.getUsuario().getId());
 			
 			st.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
 			
