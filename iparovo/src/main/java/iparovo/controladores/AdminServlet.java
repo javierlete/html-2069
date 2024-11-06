@@ -3,6 +3,7 @@ package iparovo.controladores;
 import java.io.IOException;
 
 import iparovo.accesodatos.AdminDao;
+import iparovo.modelos.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,7 +15,12 @@ public class AdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+		
+		if(usuario == null || !usuario.isAdmin()) {
+			response.sendRedirect("login");
+			return;
+		}
 		
 		request.setAttribute("pedidos", AdminDao.getPedidos());
 		
