@@ -43,6 +43,9 @@ Usuario usuario = (Usuario) session.getAttribute("usuario");
 					<li class="nav-item"><a class="nav-link" href="cesta">Cesta
 							<i class="bi bi-basket"></i>
 					</a></li>
+					<% if(usuario != null && usuario.isAdmin())  { %>
+					<li class="nav-item"><a class="nav-link" href="admin">Administración</a></li>
+					<% } %>
 					<%
 					if (usuario != null) {
 					%>
