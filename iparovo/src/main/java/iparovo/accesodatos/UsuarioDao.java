@@ -7,7 +7,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
+import iparovo.modelos.Cesta;
+import iparovo.modelos.Restaurante;
 import iparovo.modelos.Usuario;
 
 public class UsuarioDao {
@@ -39,6 +43,15 @@ public class UsuarioDao {
 		} catch (SQLException e) {
 			throw new RuntimeException("No se ha podido realizar la consulta", e);
 		}
+	}
+
+	public static Object buscarPedidosPorIdUsuario(Long id) {
+		var pedidos = new ArrayList<Cesta>();
+		
+		pedidos.add(new Cesta(null, null, new Restaurante(null, "Restaurante 1" + id, null, null, null, null, null, null), LocalDateTime.now()));
+		pedidos.add(new Cesta(null, null, new Restaurante(null, "Restaurante 2" + id, null, null, null, null, null, null), LocalDateTime.now()));
+		
+		return pedidos;
 	}
 
 }
