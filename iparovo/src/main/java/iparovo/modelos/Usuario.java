@@ -55,6 +55,10 @@ public class Usuario {
 	public void setRol(String rol) {
 		this.rol = rol;
 	}
+	
+	public boolean isAdmin() {
+		return "ADMIN".equals(rol);
+	}
 
 	@Override
 	public String toString() {
