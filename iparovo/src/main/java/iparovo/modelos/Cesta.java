@@ -1,5 +1,6 @@
 package iparovo.modelos;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Cesta {
@@ -8,15 +9,22 @@ public class Cesta {
 	private Long id;
 	private Usuario usuario;
 	private Restaurante restaurante;
+	private LocalDateTime fecha;
+	
 	private ArrayList<Linea> lineas = new ArrayList<Linea>();
 
-	public Cesta(Long id, Usuario usuario, Restaurante restaurante) {
+	public Cesta(Long id, Usuario usuario, Restaurante restaurante, LocalDateTime fecha) {
 		super();
 		this.id = id;
-		this.setUsuario(usuario);
+		this.usuario = usuario;
 		this.restaurante = restaurante;
+		this.fecha = fecha;
 	}
 
+	public Cesta(Long id, Usuario usuario, Restaurante restaurante) {
+		this(id, usuario, restaurante, LocalDateTime.now());
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -35,6 +43,10 @@ public class Cesta {
 
 	public Restaurante getRestaurante() {
 		return restaurante;
+	}
+
+	public LocalDateTime getFecha() {
+		return fecha;
 	}
 
 	public ArrayList<Linea> getLineas() {
