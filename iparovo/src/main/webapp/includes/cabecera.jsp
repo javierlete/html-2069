@@ -46,7 +46,7 @@ Usuario usuario = (Usuario) session.getAttribute("usuario");
 					<%
 					if (usuario != null) {
 					%>
-					<li class="navbar-text"><%=usuario.getNombre()%></li>
+					<li class="nav-item"><a class="nav-link" href="perfil"><%=usuario.getNombre()%></a></li>
 					<li class="nav-item"><a class="nav-link" href="logout"><i class="bi bi-box-arrow-right"></i></a></li>
 					<%
 					} else {

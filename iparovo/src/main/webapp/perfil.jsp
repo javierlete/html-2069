@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%@ include file="includes/cabecera.jsp"%>
+
+<main class="container mt-4 mb-5 pb-5">
+
+<h2>Perfil de <%=usuario.getNombre() %></h2>
+
+<dl>
+<dt>Email</dt>
+<dd><%=usuario.getEmail() %></dd>
+<dt>Rol</dt>
+<dd><%=usuario.getRol() %></dd>
+</dl>
+
+<h3>Pedidos</h3>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Restaurante</th>
+			<th>Fecha</th>
+			<th>Ver pedido</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>alksdjflkajsdf</td>
+			<td>2024-01-02</td>
+			<td>
+				<a class="btn btn-primary btn-sm" href="#">Ver pedido</a>
+			</td>
+		</tr>
+		<tr>
+			<td>alksdjflkajsdf</td>
+			<td>2024-01-02</td>
+			<td>
+				<a class="btn btn-primary btn-sm" href="#">Ver pedido</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+</main>
+
+<%@ include file="includes/pie.jsp"%>
