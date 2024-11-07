@@ -1,13 +1,17 @@
 package iparovo.accesodatos;
 
+import static iparovo.accesodatos.Globales.pass;
 import static iparovo.accesodatos.Globales.url;
+import static iparovo.accesodatos.Globales.user;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import iparovo.modelos.Cesta;
@@ -28,7 +32,7 @@ public class UsuarioDao {
 	public static void insertar(Usuario usuario) {
 		String sql = String.format(sqlInsert, usuario.getNombre(), usuario.getEmail(), usuario.getPassword(), usuario.getRol());
 
-		try (Connection con = DriverManager.getConnection(url);
+		try (Connection con = DriverManager.getConnection(url, user, pass);
 				Statement st = con.createStatement()) {
 			st.executeUpdate(sql);
 		} catch (SQLException e) {
@@ -39,7 +43,7 @@ public class UsuarioDao {
 	public static Usuario buscarPorEmail(String email) {
 		String sql = String.format(sqlSelectEmail, email);
 
-		try (Connection con = DriverManager.getConnection(url);
+		try (Connection con = DriverManager.getConnection(url, user, pass);
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery(sql)) {
 			if(rs.next()) {
@@ -57,7 +61,7 @@ public class UsuarioDao {
 		
 		String sql = String.format(sqlSelectPedidos, id);
 
-		try (Connection con = DriverManager.getConnection(url);
+		try (Connection con = DriverManager.getConnection(url, user, pass);
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery(sql)) {
 			
@@ -66,7 +70,20 @@ public class UsuarioDao {
 			
 			while(rs.next()) {
 				restaurante = new Restaurante(null, rs.getString("nombre"), null, null, null, null, null, null);
-				pedido = new Cesta(rs.getLong("id"), null, restaurante, LocalDateTime.parse(rs.getString("fecha")));
+				
+				String sFecha = rs.getString("fecha");
+				String[] partes = sFecha.split(" ");
+				
+				if(partes.length == 1) {
+					partes = sFecha.split("T");
+				}
+				
+				LocalDate fecha = LocalDate.parse(partes[0]);
+				LocalTime hora = LocalTime.parse(partes[1]);
+				
+				LocalDateTime fechaHora = LocalDateTime.of(fecha, hora);
+				
+				pedido = new Cesta(rs.getLong("id"), null, restaurante, fechaHora);
 
 				pedidos.add(pedido);
 			}

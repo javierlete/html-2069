@@ -13,7 +13,7 @@ import iparovo.modelos.Linea;
 import iparovo.modelos.Plato;
 import iparovo.modelos.Restaurante;
 
-import static iparovo.accesodatos.Globales.url;
+import static iparovo.accesodatos.Globales.*;
 
 // Data Access Object
 
@@ -36,7 +36,7 @@ public class RestauranteDao {
 	public static ArrayList<Restaurante> obtenerTodos() {
 		var restaurantes = new ArrayList<Restaurante>();
 
-		try (Connection con = DriverManager.getConnection(url);
+		try (Connection con = DriverManager.getConnection(url, user, pass);
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery(sqlSelect)) {
 			Restaurante restaurante;
@@ -58,7 +58,7 @@ public class RestauranteDao {
 	public static ArrayList<Restaurante> obtenerPorTipo(String tipo) {
 		var restaurantes = new ArrayList<Restaurante>();
 
-		try (Connection con = DriverManager.getConnection(url);
+		try (Connection con = DriverManager.getConnection(url, user, pass);
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery(String.format(sqlSelectPorTipos, tipo))) {
 			Restaurante restaurante;
@@ -78,7 +78,7 @@ public class RestauranteDao {
 	}
 	
 	public static Restaurante obtenerPorId(Long id) {
-		try (Connection con = DriverManager.getConnection(url);
+		try (Connection con = DriverManager.getConnection(url, user, pass);
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery(sqlSelectId + id)) {
 			Restaurante restaurante = null;
@@ -98,7 +98,7 @@ public class RestauranteDao {
 	public static ArrayList<Plato> obtenerPlatosPorIdRestaurante(Long id) {
 		var platos = new ArrayList<Plato>();
 		
-		try (Connection con = DriverManager.getConnection(url);
+		try (Connection con = DriverManager.getConnection(url, user, pass);
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery(sqlSelectIdPlatos + id)) {
 			Plato plato;
@@ -116,7 +116,7 @@ public class RestauranteDao {
 	}
 
 	public static Plato obtenerPlatoPorId(Long id) {
-		try (Connection con = DriverManager.getConnection(url);
+		try (Connection con = DriverManager.getConnection(url, user, pass);
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery(sqlSelectPlatoPorId + id)) {
 			Plato plato = null;
@@ -134,7 +134,7 @@ public class RestauranteDao {
 	public static ArrayList<String> obtenerTipos() {
 		var tipos = new ArrayList<String>();
 
-		try (Connection con = DriverManager.getConnection(url);
+		try (Connection con = DriverManager.getConnection(url, user, pass);
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery(sqlSelectTipos)) {
 			while (rs.next()) {
@@ -150,7 +150,7 @@ public class RestauranteDao {
 	public static ArrayList<Restaurante> obtenerPorTexto(String busqueda) {
 		var restaurantes = new ArrayList<Restaurante>();
 
-		try (Connection con = DriverManager.getConnection(url);
+		try (Connection con = DriverManager.getConnection(url, user, pass);
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery(String.format(sqlSelectPorTexto, busqueda))) {
 			Restaurante restaurante;
@@ -170,7 +170,7 @@ public class RestauranteDao {
 	}
 	
 	public static void insertarPedido(Cesta cesta) {
-		try (Connection con = DriverManager.getConnection(url);
+		try (Connection con = DriverManager.getConnection(url, user, pass);
 				Statement st = con.createStatement()) {
 			String sql = String.format(sqlInsertPedido, LocalDateTime.now(), cesta.getRestaurante().getId(), cesta.getUsuario().getId());
 			
