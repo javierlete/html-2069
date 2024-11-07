@@ -33,14 +33,6 @@ public class RestauranteDao {
 	private static final String sqlInsertPedido = "INSERT INTO pedidos (fecha, restaurante_id, usuario_id) VALUES ('%s', %s, %s)";
 	private static final String sqlInsertLinea = "INSERT INTO lineas (pedido_id, plato_id, cantidad) VALUES (%s, %s, %s)";
 
-	static {
-		try {
-			Class.forName("org.sqlite.JDBC");
-		} catch (ClassNotFoundException e) {
-			throw new RuntimeException("No se ha encontrado el driver", e);
-		}
-	}
-
 	public static ArrayList<Restaurante> obtenerTodos() {
 		var restaurantes = new ArrayList<Restaurante>();
 
