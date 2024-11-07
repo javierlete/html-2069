@@ -6,7 +6,8 @@ class Globales {
 	static final String pass;
 	
 	static {
-		url = "jdbc:sqlite:C:\\Users\\curso.IPARTEKAULA\\git\\html-2069\\iparovo\\bdd\\iparovo.db"; //"jdbc:mysql://localhost:3306/iparovo";
+		url = "jdbc:sqlite:C:\\Users\\curso.IPARTEKAULA\\git\\html-2069\\iparovo\\bdd\\iparovo.db";
+		//url = "jdbc:mysql://localhost:3306/iparovo";
 		user = "root";
 		pass = "1234";
 
