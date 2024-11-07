@@ -2,6 +2,7 @@ package iparovo.controladores;
 
 import java.io.IOException;
 
+import bibliotecas.Encriptaciones;
 import iparovo.accesodatos.UsuarioDao;
 import iparovo.modelos.Usuario;
 import jakarta.servlet.ServletException;
@@ -25,7 +26,9 @@ public class LoginServlet extends HttpServlet {
 		
 		Usuario usuario = UsuarioDao.buscarPorEmail(email);
 		
-		if(usuario != null && password.equals(usuario.getPassword())) {
+		String passwordEncriptada = Encriptaciones.encriptarConSHA256(password);
+		
+		if(usuario != null && passwordEncriptada.equals(usuario.getPassword())) {
 			HttpSession session = request.getSession();
 			
 			session.setAttribute("usuario", usuario);
